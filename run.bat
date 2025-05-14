@@ -1,6 +1,6 @@
 cmake CMakeLists.txt
 cmake --install .
 cmake --build .
-cd main\
-main.exe
+cd build\
+Objektinis.exe
 pause
