@@ -62,6 +62,24 @@ Atlikti catch2 unit testai pilnam nuosavo vektoriaus klasės funkcionalumui išt
 
 Visi catch testai praėjo sėkmingai.
 
+## Efektyvumo testai
+Atliktas efektyvumo testas lyginant `std::vector` ir nuosavą `Vector`, tuščius vektorius užpildant: 10000, 100000, 1000000, 10000000 ir 100000000 int elementų naudojant push_back() funkciją. Testas aprašytas `src`/`functions.cpp` faile -> `benchmarkPushBack`. Testavimui naudota `std::chrono::high_resolution_clock` biblioteka.
+
+| Elementų skaičius | std::vector (s) | Own Vector (s) | Own Vector Perskirstymai |
+|-------------------|-----------------|----------------|--------------------------|
+| 10 000            | 0.00047         | 0.00015        | 15                       |
+| 100 000           | 0.00277         | 0.00120        | 18                       |
+| 1 000 000         | 0.02323         | 0.00635        | 21                       |
+| 10 000 000        | 0.18471         | 0.07862        | 25                       |
+| 100 000 000       | 1.86080         | 0.68589        | 28                       |
+
+
+**Išvados:**
+- Nuosavas `Vector` konteineris parodė daug geresnį našumą už `std::vector`, ypač užpildant didesnius kiekius elementų.
+- Perskirstymai nuosavam `Vector` vyksta maždaug 15-28 kartus priklausomai nuo duomenų kiekio, kas atitinka dvigubinimo strategiją atminties valdyme.
+- `std::vector` perskirstymų skaičiaus tiesiogiai negalima išmatuoti, tačiau jis yra panašus pagal elgesį.
+
+
 # Programos versijos
 
 Kiekviena versija išsamiai aprašyta jos `README.md` faile.
@@ -100,3 +118,6 @@ Kad įsitikint, jog klasė `Zmogus` yra abstrakti, reikia atkomentuoti funkciją
 
 ## v2.0
 Sukurta klasę aprašanti dokumentacija, HTML ir TEX formatais, su sukompiliuotu PDF failu. Atlikti Catch2 testai faile `src`/`catchTest.cpp`.
+
+## v3.0
+Implementuotas nuosavas `Vector` padengiantis daugiau nei 80% `std::vector` funkcionalumo. Atlikti efektyvumo bei funkcionalumo testavimai.
