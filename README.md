@@ -52,7 +52,8 @@ Vektorius aprašytas `include``/ownVector.h` faile.
 
 ## Pradinis Vector testas
 Atliktas pradinis Vector testas lyginant su std::vector. Patikrintas bazinis funkcionalumas. Testas aprašytas `src``/functions.cpp` faile -> `void testOwnVector()`. Jį galima įvykdyti pasirinkus Menu -> testavimas -> nuosavo vektoriaus testavimas.
-![Screenshot 2025-05-26 142212](https://github.com/user-attachments/assets/3b01ee2b-404b-411f-86d5-2e5264c9dd6e)
+![image](https://github.com/user-attachments/assets/870b535f-c4ce-4415-966c-e806e8f4b30a)
+
 Visi pradiniai testai sekmingai praėjo.
 
 # Programos versijos
