@@ -63,7 +63,7 @@ Atlikti catch2 unit testai pilnam nuosavo vektoriaus klasės funkcionalumui išt
 Visi catch testai praėjo sėkmingai.
 
 ## Efektyvumo testai
-Atliktas efektyvumo testas lyginant `std::vector` ir nuosavą `Vector`, tuščius vektorius užpildant: 10000, 100000, 1000000, 10000000 ir 100000000 int elementų naudojant push_back() funkciją. Testas aprašytas `src`/`functions.cpp` faile -> `benchmarkPushBack`. Testavimui naudota `std::chrono::high_resolution_clock` biblioteka.
+Atlikti efektyvumo testai lyginant `std::vector` ir nuosavą `Vector`, tuščius vektorius užpildant: 10000, 100000, 1000000, 10000000 ir 100000000 int elementų naudojant push_back() funkciją. Testas aprašytas `src`/`functions.cpp` faile -> `benchmarkPushBack`. Testavimui naudota `std::chrono::high_resolution_clock` biblioteka.
 
 | Elementų skaičius | std::vector (s) | Own Vector (s) | Own Vector Perskirstymai |
 |-------------------|-----------------|----------------|--------------------------|
