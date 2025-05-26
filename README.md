@@ -44,6 +44,18 @@ Yra sukurta programos dokumentacija - `dokumentacija.pdf`.
 | Į ekraną  | Duomenys atvaizduojami konsolėje per `cout <<` |
 | Į failą   | Duomenys saugomi faile per `ostringstream` |
 
+## Kompiliavimas programavimo aplinkoje
+| Tipas      | Aprašymas                             |
+|-----------|--------------------------------------|
+| Programa  |`cd build && .\Objektinis.exe` (nukreipia į MENU) |
+| Catch2 testai  | `cd build && .\tests.exe` |
+
+## MENU
+| Tipas      | Aprašymas                             |
+|-----------|--------------------------------------|
+| Programa  | 1 - Įvesti viską rankiniu būdu<br>2 - Generuoti atsitiktinius pažymius (vardus įvesti ranka)<br>3 - Generuoti atsitiktinius vardus ir pažymius<br>4 - Skaityti iš failo<br>5 - Užbaigti programą|
+| Tyrimai   | 1 - failu generavimas<br>2 - programos veikimo laikas<br>3 - Rule of Five testavimas<br>4 - nuosavo vektoriaus testavimas<br>5 - Vector ir std::vector paskirtymo testavimas<br>0 - Užbaigti programa |
+
 
 # Versija v3.0
 
@@ -65,7 +77,7 @@ Visi catch testai praėjo sėkmingai.
 ## Efektyvumo testai
 Atlikti efektyvumo testai lyginant `std::vector` ir nuosavą `Vector`, tuščius vektorius užpildant: 10000, 100000, 1000000, 10000000 ir 100000000 int elementų naudojant push_back() funkciją. Testas aprašytas `src`/`functions.cpp` faile -> `benchmarkPushBack`. Testavimui naudota `std::chrono::high_resolution_clock` biblioteka.
 
-| Elementų skaičius | std::vector (s) | Own Vector (s) | Own Vector Perskirstymai |
+| Elementų skaičius | std::vector (s) | Own Vector (s) | Own Vector reallocations |
 |-------------------|-----------------|----------------|--------------------------|
 | 10 000            | 0.00047         | 0.00015        | 15                       |
 | 100 000           | 0.00277         | 0.00120        | 18                       |
@@ -76,7 +88,7 @@ Atlikti efektyvumo testai lyginant `std::vector` ir nuosavą `Vector`, tuščius
 
 **Išvados:**
 - Nuosavas `Vector` konteineris parodė daug geresnį našumą už `std::vector`, ypač užpildant didesnius kiekius elementų.
-- Perskirstymai nuosavam `Vector` vyksta maždaug 15-28 kartus priklausomai nuo duomenų kiekio, kas atitinka dvigubinimo strategiją atminties valdyme.
+- Perskirstymai (reallocations) nuosavam `Vector` vyksta maždaug 15-28 kartus priklausomai nuo duomenų kiekio, kas atitinka dvigubinimo strategiją atminties valdyme.
 - `std::vector` perskirstymų skaičiaus tiesiogiai negalima išmatuoti, tačiau jis yra panašus pagal elgesį.
 
 
