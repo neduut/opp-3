@@ -87,7 +87,7 @@ Atlikti efektyvumo testai lyginant `std::vector` ir nuosavą `Vector`, tuščius
 
 
 **Išvados:**
-- Nuosavas `Vector` konteineris parodė daug geresnį našumą už `std::vector`, ypač užpildant didesnius kiekius elementų.
+- Nuosavas `Vector` konteineris parodė geresnį našumą už `std::vector`, ypač užpildant didesnius kiekius elementų.
 - Perskirstymai (reallocations) nuosavam `Vector` vyksta maždaug 15-28 kartus priklausomai nuo duomenų kiekio, kas atitinka dvigubinimo strategiją atminties valdyme.
 - `std::vector` perskirstymų skaičiaus tiesiogiai negalima išmatuoti, tačiau jis yra panašus pagal elgesį.
 
