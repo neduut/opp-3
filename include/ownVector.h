@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <functional>
 #include <iostream>
+#include <initializer_list>
 #include <stdexcept>
 
 template <typename T>
@@ -26,7 +27,7 @@ private:
     }
 
 public:
-    // CONSTRUCTORS 
+    // CONSTRUCTORS
 
     // 2. vector (default constructor)
     Vector() : buffer(nullptr), _size(0), _capacity(0) {}
@@ -39,25 +40,33 @@ public:
         for (size_t i = 0; i < n; ++i) buffer[i] = value;
     }
 
+    // 5. vector (initializer_list constructor)
+    Vector(std::initializer_list<T> init)
+        : buffer(new T[init.size()]), _size(init.size()), _capacity(init.size()) {
+        size_t i = 0;
+        for (const T& val : init) {
+            buffer[i++] = val;
+        }
+    }
 
     // RULE OF FIVE
 
-    // 5. vector (copy constructor)
+    // 6. vector (copy constructor)
     Vector(const Vector<T>& other) : buffer(new T[other._capacity]), _size(other._size), _capacity(other._capacity) {
         for (size_t i = 0; i < _size; ++i) buffer[i] = other.buffer[i];
     }
 
-    // 6. vector (move constructor)
+    // 7. vector (move constructor)
     Vector(Vector<T>&& other) noexcept : buffer(other.buffer), _size(other._size), _capacity(other._capacity) {
         other.buffer = nullptr;
         other._size = 0;
         other._capacity = 0;
     }
 
-    // 7. ~vector (destructor)
+    // 8. ~vector (destructor)
     ~Vector() { delete[] buffer; }
 
-    // 8. operator= (copy assignment)
+    // 9. operator= (copy assignment)
     Vector<T>& operator=(const Vector<T>& other) {
         if (this != &other) {
             delete[] buffer;
@@ -69,7 +78,7 @@ public:
         return *this;
     }
 
-    // 9. operator= (move assignment)
+    // 10. operator= (move assignment)
     Vector<T>& operator=(Vector<T>&& other) noexcept {
         if (this != &other) {
             delete[] buffer;
@@ -83,28 +92,27 @@ public:
         return *this;
     }
 
-
     // ELEMENT ACCESS
 
-    // 10. operator[] (element access)
+    // 11. operator[]
     T& operator[](size_t index) { return buffer[index]; }
-
-    // 11. operator[] const (element access)
+    
+    // 12. operator[] const
     const T& operator[](size_t index) const { return buffer[index]; }
-
-    // 12. back
+    
+    // 13. back
     T& back() { return buffer[_size - 1]; }
     const T& back() const { return buffer[_size - 1]; }
 
-    // 13. front
+    // 14. front
     T& front() { return buffer[0]; }
     const T& front() const { return buffer[0]; }
 
-    // 14. data
+    // 15. data
     T* data() { return buffer; }
     const T* data() const { return buffer; }
 
-    // 15. at
+    // 16. at
     T& at(size_t index) {
         if (index >= _size) throw std::out_of_range("Index out of range");
         return buffer[index];
@@ -114,70 +122,66 @@ public:
         return buffer[index];
     }
 
-
     // ITERATORS
 
-    // 16. begin
+    // 17. begin
     T* begin() { return buffer; }
     const T* begin() const { return buffer; }
 
-    // 17. end
+    // 18. end
     T* end() { return buffer + _size; }
     const T* end() const { return buffer + _size; }
 
-
     // SIZE AND CAPACITY
 
-    // 18. size
-
+    // 19. size
     size_t size() const { return _size; }
-    // 19. capacity
 
+    // 20. capacity
     size_t capacity() const { return _capacity; }
-    // 20. empty
+
+    // 21. empty
     bool empty() const { return _size == 0; }
 
+    // MEMORY MANAGEMENT
 
-    // MEMORY MANAGEMENT (PUBLIC)
-
-    // 21. reserve
+    // 22. reserve
     void reserve(size_t new_cap) {
         if (new_cap > _capacity) reallocate(new_cap);
     }
-
-    // 22. shrink_to_fit
+    
+    // 23. shrink_to_fit
     void shrink_to_fit() {
         if (_capacity > _size) reallocate(_size);
     }
 
+    // MODIFIERS
 
-    // MODFIERS
-
-    // 23. push_back (copy)
+    // 24. push_back (copy)
     void push_back(const T& value) {
         if (_size >= _capacity) reserve(_capacity ? _capacity * 2 : 1);
         buffer[_size++] = value;
     }
 
-    // 24. push_back (move)
+    // 25. push_back (move)
     void push_back(T&& value) {
         if (_size >= _capacity) reserve(_capacity ? _capacity * 2 : 1);
         buffer[_size++] = std::move(value);
     }
 
-    // 25. pop_back
+    // 26. pop_back
     void pop_back() { if (_size > 0) --_size; }
 
-    // 26. clear
+    // 27. clear
     void clear() { _size = 0; }
 
-    // 27. resize (without value)
+    // 28. resize (without value)
     void resize(size_t new_size) {
         if (new_size > _capacity) reserve(new_size);
         _size = new_size;
     }
 
-    // 28. resize (with value)
+    // 29. resize (with value)
     void resize(size_t new_size, const T& value) {
         if (new_size > _size) {
             if (new_size > _capacity) reserve(new_size);
@@ -186,7 +190,7 @@ public:
         _size = new_size;
     }
 
-    // 29. insert
+    // 30. insert
     void insert(size_t index, const T& value) {
         if (index > _size) throw std::out_of_range("Index out of range");
         if (_size >= _capacity) reserve(_capacity ? _capacity * 2 : 1);
@@ -195,21 +199,21 @@ public:
         ++_size;
     }
 
-    // 30. erase
+    // 31. erase
     void erase(size_t index) {
         if (index >= _size) throw std::out_of_range("Index out of range");
         for (size_t i = index; i < _size - 1; ++i) buffer[i] = std::move(buffer[i + 1]);
         --_size;
     }
 
-    // 31. swap
+    // 32. swap
     void swap(Vector<T>& other) {
         std::swap(buffer, other.buffer);
         std::swap(_size, other._size);
         std::swap(_capacity, other._capacity);
     }
 
-    // 32. assign
+    // 33. assign
     void assign(size_t count, const T& value) {
         clear();
         if (count > _capacity) reserve(count);
@@ -217,23 +221,22 @@ public:
         for (size_t i = 0; i < count; ++i) buffer[i] = value;
     }
 
-    // 33. reverse
+    // 34. reverse
     void reverse() {
         for (size_t i = 0; i < _size / 2; ++i) {
             std::swap(buffer[i], buffer[_size - i - 1]);
         }
     }
 
-    // 34. remove
+    // 35. remove
     void remove(const T& value) {
         int idx = index_of(value);
         if (idx != -1) erase(static_cast<size_t>(idx));
     }
 
-
     // COMPARISON OPERATORS
 
-    // 35. operator== (equality)
+    // 36. operator==
     bool operator==(const Vector<T>& other) const {
         if (_size != other._size) return false;
         for (size_t i = 0; i < _size; ++i) {
@@ -242,10 +245,10 @@ public:
         return true;
     }
 
-    // 36. operator!= (inequality)
+    // 37. operator!=
     bool operator!=(const Vector<T>& other) const { return !(*this == other); }
 
-    // 37. operator< (less than)
+    // 38. operator<
     bool operator<(const Vector<T>& other) const {
         size_t min_size = std::min(_size, other._size);
         for (size_t i = 0; i < min_size; ++i) {
@@ -255,13 +258,12 @@ public:
         return _size < other._size;
     }
 
-    // 38. operator> (greater than)
+    // 39. operator>
     bool operator>(const Vector<T>& other) const { return other < *this; }
-
 
     // SEARCH
 
-    // 39. contains
+    // 40. contains
     bool contains(const T& value) const {
         for (size_t i = 0; i < _size; ++i) {
             if (buffer[i] == value) return true;
@@ -269,7 +271,7 @@ public:
         return false;
     }
 
-    // 40. index_of
+    // 41. index_of
     int index_of(const T& value) const {
         for (size_t i = 0; i < _size; ++i) {
             if (buffer[i] == value) return static_cast<int>(i);
@@ -277,10 +279,9 @@ public:
         return -1;
     }
 
-
     // OTHER UTILITIES
 
-    // 41. slice
+    // 42. slice
     Vector<T> slice(size_t start, size_t end) const {
         if (start > end || end > _size) throw std::out_of_range("Invalid slice range");
         Vector<T> result;
@@ -289,10 +290,10 @@ public:
         return result;
     }
 
-    // 42. sort
+    // 43. sort
     void sort() { std::sort(begin(), end()); }
 
-    // 43. unique
+    // 44. unique
     void unique() {
         if (_size <= 1) return;
         sort();
@@ -302,8 +303,7 @@ public:
         }
         _size = j + 1;
     }
-
-    // 44. map
+    // 45. map
     Vector<T> map(std::function<T(const T&)> func) const {
         Vector<T> result;
         result.reserve(_size);

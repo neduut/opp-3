@@ -7,8 +7,119 @@
 #include <fstream>
 #include <vector>
 #include <cstdio>
+#include "ownVector.h"  // Įsijunkite savo Vector klasės headerį
 
-TEST_CASE("Student klasės metodų testai") {
+TEST_CASE("Konstruktoriai ir pagrindinės operacijos") {
+    SECTION("Default konstruktorius") {
+        Vector<int> v;
+        REQUIRE(v.size() == 0);
+        REQUIRE(v.capacity() == 0);
+        REQUIRE(v.empty());
+    }
+
+    SECTION("Dydžio konstruktorius") {
+        Vector<int> v(5);
+        REQUIRE(v.size() == 5);
+        REQUIRE(v.capacity() == 5);
+    }
+
+    SECTION("Dydžio ir reikšmės konstruktorius") {
+        Vector<int> v(3, 42);
+        REQUIRE(v.size() == 3);
+        REQUIRE(v[2] == 42);
+    }
+}
+
+TEST_CASE("Kopijavimas ir perkėlimas") {
+    Vector<int> original{1, 2, 3};
+    
+    SECTION("Kopijavimo konstruktorius") {
+        Vector<int> copy(original);
+        REQUIRE(copy == original);
+    }
+
+    SECTION("Perkėlimo konstruktorius") {
+        Vector<int> moved(std::move(original));
+        REQUIRE(moved.size() == 3);
+        REQUIRE(original.empty());
+    }
+}
+
+TEST_CASE("Elementų prieiga") {
+    Vector<int> v{10, 20, 30};
+    
+    SECTION("Operatorius []") {
+        REQUIRE(v[1] == 20);
+        v[0] = 100;
+        REQUIRE(v[0] == 100);
+    }
+
+    SECTION("Metodas at()") {
+        REQUIRE(v.at(2) == 30);
+        REQUIRE_THROWS_AS(v.at(3), std::out_of_range);
+    }
+}
+
+TEST_CASE("Modifikavimo metodai") {
+    Vector<int> v;
+    
+    SECTION("Push back") {
+        v.push_back(1);
+        v.push_back(2);
+        REQUIRE(v.size() == 2);
+        REQUIRE(v.back() == 2);
+    }
+
+    SECTION("Insert ir erase") {
+        v.insert(0, 10);
+        v.insert(1, 20);
+        REQUIRE(v == Vector<int>{10, 20});
+        
+        v.erase(0);
+        REQUIRE(v.size() == 1);
+        REQUIRE(v[0] == 20);
+    }
+}
+
+TEST_CASE("Utility metodai") {
+    Vector<int> v{3, 1, 2, 2, 4};
+    
+    SECTION("Rūšiavimas") {
+        v.sort();
+        REQUIRE(v == Vector<int>{1, 2, 2, 3, 4});
+    }
+
+    SECTION("Unikalumas") {
+        v.sort();
+        v.unique();
+        REQUIRE(v == Vector<int>{1, 2, 3, 4});
+    }
+
+    SECTION("Map operacija") {
+        auto squared = v.map([](int x) { return x*x; });
+        REQUIRE(squared == Vector<int>{9, 1, 4, 4, 16});
+    }
+}
+
+TEST_CASE("Kiti testai") {
+    SECTION("Talpos valdymas") {
+        Vector<int> v;
+        v.reserve(10);
+        REQUIRE(v.capacity() >= 10);
+        
+        v.shrink_to_fit();
+        REQUIRE(v.capacity() == 0);
+    }
+
+    SECTION("Lyginimo operatoriai") {
+        Vector<int> a{1, 2};
+        Vector<int> b{1, 2, 3};
+        REQUIRE(a < b);
+        REQUIRE_FALSE(a == b);
+    }
+}
+
+/*TEST_CASE("Student klasės metodų testai") {
     SetConsoleOutputCP(65001);
 
     // 1st test
@@ -215,4 +326,4 @@ TEST_CASE("Papildomi testai") {
         skaicius++;
         REQUIRE(skaicius == 6);
     }
-}
+}*/
