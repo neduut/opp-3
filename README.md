@@ -11,7 +11,7 @@ Yra sukurta programos dokumentacija - `dokumentacija.pdf`.
 - `analysis` - programos veikimo analizės rezultatai, naudojami tam tikrose programos versijose
 - `docs` - doxygen failai
 - `files` - programoje vykdymo metu naudojami .txt failai (įtrauktas į `.gitignore` ir atsiras tik paleidus programą)
-- `include` - antraščių `.h` failai
+- `include` - antraščių `.h` failai 
 - `src` - `.cpp` failai
 
 **Kad paleisti programą, turite atlikti šiuos veiksmus:**
@@ -45,6 +45,15 @@ Yra sukurta programos dokumentacija - `dokumentacija.pdf`.
 | Į failą   | Duomenys saugomi faile per `ostringstream` |
 
 
+# Versija v3.0
+
+Šioje versijoje implementuotas nuosavas vektorius `Vector`, kuris padengia daugiau nei 80% `std::vector` funkcionalumo.
+Vektorius aprašytas `include``/ownVector.h` faile.
+
+## Pradinis Vector testas
+Atliktas pradinis Vector testas lyginant su std::vector. Patikrintas bazinis funkcionalumas. Testas aprašytas `src``/functions.cpp` faile -> `void testOwnVector()`. Jį galima įvykdyti pasirinkus Menu -> testavimas -> nuosavo vektoriaus testavimas.
+![Screenshot 2025-05-26 142212](https://github.com/user-attachments/assets/3b01ee2b-404b-411f-86d5-2e5264c9dd6e)
+Visi pradiniai testai sekmingai praėjo.
 
 # Programos versijos
 
