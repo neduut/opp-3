@@ -24,60 +24,12 @@
 */
 var NAVTREE =
 [
-  [ "Objektinis", "index.html", [
-    [ "Aprašymas", "md__r_e_a_d_m_e.html", [
-      [ "Naudojimo instrukcijos", "md__r_e_a_d_m_e.html#autotoc_md1", [
-        [ "Duomenų įvestis", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
-        [ "Duomenų išvestis", "md__r_e_a_d_m_e.html#autotoc_md3", null ]
-      ] ],
-      [ "Versija 1.5", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
-      [ "Bazinė ir išvestinė klasės", "md__r_e_a_d_m_e.html#autotoc_md5", [
-        [ "Zmogus bazinė klasė", "md__r_e_a_d_m_e.html#autotoc_md6", null ],
-        [ "Student išvestinė klasė", "md__r_e_a_d_m_e.html#autotoc_md7", null ],
-        [ "Testavimas", "md__r_e_a_d_m_e.html#autotoc_md8", null ],
-        [ "Rule of five:", "md__r_e_a_d_m_e.html#autotoc_md9", null ],
-        [ "Įvestis:", "md__r_e_a_d_m_e.html#autotoc_md10", null ],
-        [ "Išvestis:", "md__r_e_a_d_m_e.html#autotoc_md11", null ],
-        [ "Destruktorius:", "md__r_e_a_d_m_e.html#autotoc_md12", null ],
-        [ "Papildomi failai testavimui", "md__r_e_a_d_m_e.html#autotoc_md13", null ]
-      ] ],
-      [ "Programos versijos", "md__r_e_a_d_m_e.html#autotoc_md14", [
-        [ "v.pradinė", "md__r_e_a_d_m_e.html#autotoc_md15", null ],
-        [ "v0.1", "md__r_e_a_d_m_e.html#autotoc_md16", null ],
-        [ "v0.2", "md__r_e_a_d_m_e.html#autotoc_md17", null ],
-        [ "v0.3", "md__r_e_a_d_m_e.html#autotoc_md18", null ],
-        [ "v0.4", "md__r_e_a_d_m_e.html#autotoc_md19", null ],
-        [ "v1.0prad", "md__r_e_a_d_m_e.html#autotoc_md20", null ],
-        [ "v1.0", "md__r_e_a_d_m_e.html#autotoc_md21", null ],
-        [ "v1.1", "md__r_e_a_d_m_e.html#autotoc_md22", null ],
-        [ "v1.2", "md__r_e_a_d_m_e.html#autotoc_md23", null ],
-        [ "v1.5", "md__r_e_a_d_m_e.html#autotoc_md24", null ]
-      ] ]
-    ] ],
-    [ "Klasės", "annotated.html", [
-      [ "Klasės", "annotated.html", "annotated_dup" ],
-      [ "Klasės Indeksas", "classes.html", null ],
-      [ "Klasių hierarchija", "hierarchy.html", "hierarchy" ],
-      [ "Klasių Nariai", "functions.html", [
-        [ "Visi", "functions.html", null ],
-        [ "Funkcijos", "functions_func.html", null ],
-        [ "Kintamieji", "functions_vars.html", null ]
-      ] ]
-    ] ],
-    [ "Failai", "files.html", [
-      [ "Failai", "files.html", "files_dup" ],
-      [ "Failų Nariai", "globals.html", [
-        [ "Visi", "globals.html", null ],
-        [ "Funkcijos", "globals_func.html", null ],
-        [ "Kintamieji", "globals_vars.html", null ]
-      ] ]
-    ] ]
-  ] ]
+  [ "Objektinis", "index.html", ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
