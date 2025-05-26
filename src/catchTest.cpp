@@ -8,7 +8,7 @@
 #include <vector>
 #include <cstdio>
 
-TEST_CASE("Student klasės testai") {
+TEST_CASE("Student klasės metodų testai") {
     SetConsoleOutputCP(65001);
 
     // 1st test
@@ -162,8 +162,12 @@ TEST_CASE("Student klasės testai") {
         }
         REQUIRE(dstCount == before + 1);
     }
+}
 
-    // 14th test (additional)
+TEST_CASE("Papildomi testai") {
+    SetConsoleOutputCP(65001);
+
+    // 14th test 
     SECTION("12 TESTAS: galutinio pažymio skaičiavimas") {
         Student s;
         s.setMarks({9, 7, 10, 8, 10});
@@ -173,7 +177,7 @@ TEST_CASE("Student klasės testai") {
         REQUIRE(s.getMedianFinal() == 9);
     }
 
-    // 15th test (additional)
+    // 15th test
     SECTION("13 TESTAS: studentų grupavimas") {
         std::vector<Student> students;
         Student s1, s2, s3;
@@ -196,5 +200,19 @@ TEST_CASE("Student klasės testai") {
 
         REQUIRE(kietiakai.size() == 2);
         REQUIRE(vargsiukai.size() == 1);
+    }  
+
+    SECTION("14 TESTAS: random") {
+        std::string kazkas = "Kazkas";
+        std::string kazkas2 = "Kazkas2";
+        kazkas2 = kazkas;
+        REQUIRE(kazkas2 == "Kazkas");
+    }
+
+    SECTION("15 TESTAS: randommm")
+    {
+        int skaicius = 5;
+        skaicius++;
+        REQUIRE(skaicius == 6);
     }
 }

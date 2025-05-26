@@ -16,8 +16,7 @@ Yra sukurta programos dokumentacija - `dokumentacija.pdf`.
 
 **Kad paleisti programą, turite atlikti šiuos veiksmus:**
 
-1. Įeikite į norimos versijos katalogą
-2. Paleiskite `run.bat` failą
+   Paleiskite `run.bat` failą
 
   `run.bat` failas atliks šiuos veiksmus:
    - Sukurs build katalogą 

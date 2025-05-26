@@ -54,4 +54,5 @@ public:
     static void readFromFile(std::vector<Student>& students, int fileSize);
 };
 
+
 void sortStudents(std::vector<Student>& students, char sortType);

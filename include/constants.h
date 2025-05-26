@@ -25,6 +25,7 @@ constexpr char MENU_TEXT[] =
     "1 - failu generavimas\n"
     "2 - programos veikimo laikas\n"
     "3 - Rule of Five testavimas\n"
+    "4 - nuosavo vektoriaus testavimas\n"
     "0 - Užbaigti programa\n";
 
 constexpr char PROGRAM_MENU_TEXT[] = 

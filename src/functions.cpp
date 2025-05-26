@@ -69,6 +69,9 @@ void handleTestMenu() {
         else if (testMenuChoice == 3) {
             testRuleOfFive();
         }
+        else if (testMenuChoice == 4) {
+            testOwnVector();
+        }
     }
 }
 
@@ -407,3 +410,49 @@ void testRuleOfFive() {
     Zmogus zmogus; 
 }*/
 
+void testOwnVector() {
+    Vector<int> myVec;
+    std::vector<int> stdVec;
+    
+    myVec.push_back(5);
+    stdVec.push_back(5);
+    myVec.push_back(10);
+    stdVec.push_back(10);
+    myVec.push_back(20);
+    stdVec.push_back(20);
+
+    std::cout << "1 TESTAS: Dydis: ";
+    std::cout << (myVec.size() == stdVec.size() ? "OK" : "FAIL") << std::endl;
+
+    std::cout << "2 TESTAS: Elementai: ";
+    bool match = true;
+    for (size_t i = 0; i < myVec.size(); ++i) {
+        if (myVec[i] != stdVec[i]) {
+            match = false;
+            break;
+        }
+    }
+    std::cout << (match ? "OK" : "FAIL") << std::endl;
+
+    myVec.pop_back();
+    stdVec.pop_back();
+
+    std::cout << "3 TESTAS: Po pop_back dydis: ";
+    std::cout << (myVec.size() == stdVec.size() ? "OK" : "FAIL") << std::endl;
+
+    std::cout << "4 TESTAS: Po pop_back elementai: ";
+    match = true;
+    for (size_t i = 0; i < myVec.size(); ++i) {
+        if (myVec[i] != stdVec[i]) {
+            match = false;
+            break;
+        }
+    }
+    std::cout << (match ? "OK" : "FAIL") << std::endl;
+
+    std::cout << "\nTavo Vector: ";
+    for (size_t i = 0; i < myVec.size(); ++i) std::cout << myVec[i] << " ";
+    std::cout << "\nstd::vector: ";
+    for (size_t i = 0; i < stdVec.size(); ++i) std::cout << stdVec[i] << " ";
+    std::cout << std::endl;
+}
