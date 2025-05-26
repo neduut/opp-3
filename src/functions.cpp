@@ -72,6 +72,12 @@ void handleTestMenu() {
         else if (testMenuChoice == 4) {
             testOwnVector();
         }
+        else if (testMenuChoice == 5) {
+            for (size_t sz : {10000, 100000, 1000000, 10000000, 100000000}) {
+                benchmarkPushBack<std::vector<int>>(sz, "std::vector");
+                benchmarkPushBack<Vector<int>>(sz, "Own Vector");
+            }
+        }
     }
 }
 
@@ -454,5 +460,27 @@ void testOwnVector() {
     for (size_t i = 0; i < myVec.size(); ++i) std::cout << myVec[i] << " ";
     std::cout << "\nstd::vector: ";
     for (size_t i = 0; i < stdVec.size(); ++i) std::cout << stdVec[i] << " ";
+    std::cout << std::endl;
+}
+
+template <typename Vec>
+void benchmarkPushBack(size_t sz, const std::string& name) {
+    Vec v;
+    auto start = std::chrono::high_resolution_clock::now();
+
+    for (size_t i = 1; i <= sz; ++i) {
+        v.push_back(i);
+    }
+
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = end - start;
+
+    std::cout << name << " užpildymas " << sz << " elementų užtruko: " << diff.count() << " s";
+
+    if constexpr (std::is_same_v<Vec, Vector<int>>) {
+        std::cout << ", perskirstymų skaičius: " << v.getReallocationCount();
+    } else {
+        std::cout << ", perskirstymų skaičius: nenumatytas";
+    }
     std::cout << std::endl;
 }

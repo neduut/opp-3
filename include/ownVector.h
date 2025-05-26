@@ -12,9 +12,11 @@ private:
     size_t _size;
     size_t _capacity;
 
+    int reallocations = 0;
     // 1. reallocate
     void reallocate(size_t new_cap) {
         if (new_cap == _capacity) return;
+        reallocations++;
         T* new_buffer = new T[new_cap];
         size_t new_size = std::min(_size, new_cap);
         for (size_t i = 0; i < new_size; ++i) {
@@ -27,6 +29,8 @@ private:
     }
 
 public:
+    int getReallocationCount() const { return reallocations; }
+
     // CONSTRUCTORS
 
     // 2. vector (default constructor)
@@ -96,7 +100,7 @@ public:
 
     // 11. operator[]
     T& operator[](size_t index) { return buffer[index]; }
-    
+
     // 12. operator[] const
     const T& operator[](size_t index) const { return buffer[index]; }
     
