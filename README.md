@@ -51,10 +51,16 @@ Yra sukurta programos dokumentacija - `dokumentacija.pdf`.
 Vektorius aprašytas `include``/ownVector.h` faile.
 
 ## Pradinis Vector testas
-Atliktas pradinis Vector testas lyginant su std::vector. Patikrintas bazinis funkcionalumas. Testas aprašytas `src``/functions.cpp` faile -> `void testOwnVector()`. Jį galima įvykdyti pasirinkus Menu -> testavimas -> nuosavo vektoriaus testavimas.
+Atliktas pradinis Vector testas lyginant su std::vector. Patikrintas bazinis funkcionalumas. Testas aprašytas `src`/`functions.cpp` faile -> `void testOwnVector()`. Jį galima įvykdyti pasirinkus Menu -> testavimas -> nuosavo vektoriaus testavimas.
 ![image](https://github.com/user-attachments/assets/870b535f-c4ce-4415-966c-e806e8f4b30a)
 
-Visi pradiniai testai sekmingai praėjo.
+Visi pradiniai testai praėjo sėkmingai.
+
+## UNIT testai
+Atlikti catch2 unit testai pilnam nuosavo vektoriaus klasės funkcionalumui ištirti. Aprašyti `src``/catchTest.cpp` faile.
+![image](https://github.com/user-attachments/assets/b93649f9-3504-4282-a99c-443899cac994)
+
+Visi catch testai praėjo sėkmingai.
 
 # Programos versijos
 
