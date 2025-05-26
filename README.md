@@ -51,16 +51,138 @@ Yra sukurta programos dokumentacija - `dokumentacija.pdf`.
 | Catch2 testai  | `cd build && .\tests.exe` |
 
 ## MENU
-| Tipas      | Aprašymas                             |
-|-----------|--------------------------------------|
-| Programa  | 1 - Įvesti viską rankiniu būdu<br>2 - Generuoti atsitiktinius pažymius (vardus įvesti ranka)<br>3 - Generuoti atsitiktinius vardus ir pažymius<br>4 - Skaityti iš failo<br>5 - Užbaigti programą|
-| Tyrimai   | 1 - failu generavimas<br>2 - programos veikimo laikas<br>3 - Rule of Five testavimas<br>4 - nuosavo vektoriaus testavimas<br>5 - Vector ir std::vector paskirtymo testavimas<br>0 - Užbaigti programa |
+Paleidus programą, vartotojas pateks į meniu, kuriame galės pasirinkti ar nori vykdyti programą ar tyrimus. Žemiau pateikiami atitinkami MENU, kurie atsiras po pasirinkimo.
+
+## Programos MENU
+| Parinktis | Aprašymas                                                                            |
+| :-------- | :----------------------------------------------------------------------------------- |
+| **1** | Įvesti viską rankiniu būdu                                                           |
+| **2** | Generuoti atsitiktinius pažymius (vardus įvesti ranka)                               |
+| **3** | Generuoti atsitiktinius vardus ir pažymius                                           |
+| **4** | Skaityti iš failo                                                                    |
+| **5** | Užbaigti programą                                                                    |
+
+## Tyrimų MENU
+| Parinktis | Aprašymas                                                                     |
+| :-------- | :---------------------------------------------------------------------------- |
+| **1** | Failų generavimas                                                             |
+| **2** | Programos veikimo laikas                                                      |
+| **3** | Rule of Five testavimas                                                       |
+| **4** | Nuosavo vektoriaus testavimas                                                 |
+| **5** | Vector ir `std::vector` paskirstymo testavimas                              |
+| **0** | Užbaigti programą                                                             |
 
 
 # Versija v3.0
 
 Šioje versijoje implementuotas nuosavas vektorius `Vector`, kuris padengia daugiau nei 80% `std::vector` funkcionalumo.
 Vektorius aprašytas `include`/`ownVector.h` faile.
+
+## `Vector<T>` Klasės Aprašymas
+
+Šiame skyriuje aprašomi `Vector<T>` klasės metodai, kurie suteikia dinaminio masyvo funkcionalumą, panašų į `std::vector`.
+
+### Konstruktoriai
+
+| Funkcija                                | Aprašymas                                                                 |
+| :-------------------------------------- | :------------------------------------------------------------------------ |
+| `Vector()`                              | **Numatytasis konstruktorius.** Sukuria tuščią vektorių.                  |
+| `Vector(size_t n)`                      | Sukuria vektorių su `n` elementų.                                         |
+| `Vector(size_t n, const T& value)`      | Sukuria vektorių su `n` elementų, inicijuotų nurodyta `value`.            |
+| `Vector(std::initializer_list<T> init)` | Sukuria vektorių iš inicializavimo sąrašo.                               |
+
+### Rule of Five Metodai
+
+| Funkcija                                   | Aprašymas                                                         |
+| :----------------------------------------- | :---------------------------------------------------------------- |
+| `Vector(const Vector<T>& other)`           | **Kopijavimo konstruktorius.** Sukuria vektoriaus kopiją.           |
+| `Vector(Vector<T>&& other) noexcept`       | **Perkėlimo konstruktorius.** Perkėlia kitą vektorių.              |
+| `~Vector()`                                | **Destruktorius.** Atlaisvina užimtą atmintį.                      |
+| `Vector<T>& operator=(const Vector<T>& other)` | **Kopijavimo priskyrimo operatorius.** Kopijuoja kito vektoriaus turinį. |
+| `Vector<T>& operator=(Vector<T>&& other) noexcept` | **Perkėlimo priskyrimo operatorius.** Perkelia kito vektoriaus turinį.  |
+
+### Elementų Prieiga
+
+| Funkcija                     | Aprašymas                                                      |
+| :--------------------------- | :------------------------------------------------------------- |
+| `operator[](size_t index)`   | **Tiesioginė prieiga** prie elemento pagal indeksą (nera saugus). |
+| `const operator[](size_t index) const` | Konstantiška versija.                                          |
+| `back()`                     | Grąžina **paskutinį** vektoriaus elementą.                       |
+| `const back() const`         | Konstantiška versija.                                          |
+| `front()`                    | Grąžina **pirmą** vektoriaus elementą.                          |
+| `const front() const`        | Konstantiška versija.                                          |
+| `data()`                     | Grąžina **rodyklę** į pirmojo elemento masyvą.                   |
+| `const data() const`         | Konstantiška versija.                                          |
+| `at(size_t index)`           | **Saugus pasiekimas** prie elemento pagal indeksą; meta `std::out_of_range` jei indeksas už ribų. |
+| `const at(size_t index) const` | Konstantiška versija.                                          |
+
+### Iteratoriai
+
+| Funkcija               | Aprašymas                                         |
+| :--------------------- | :------------------------------------------------ |
+| `begin()`              | Grąžina rodyklę į **pirmą elementą**.              |
+| `const begin() const`  | Konstantiška versija.                             |
+| `end()`                | Grąžina rodyklę į elementą **už paskutinio**.       |
+| `const end() const`    | Konstantiška versija.                             |
+
+### Dydis ir Talpa
+
+| Funkcija            | Aprašymas                                     |
+| :------------------ | :-------------------------------------------- |
+| `size() const`      | Grąžina **elementų kiekį** (dydį) vektoriuje.  |
+| `capacity() const`  | Grąžina **rezervuotą atminties kiekį**.      |
+| `empty() const`     | Patikrina, ar vektorius yra **tuščias**.      |
+
+### Atminties Valdymas
+
+| Funkcija                     | Aprašymas                                                              |
+| :--------------------------- | :--------------------------------------------------------------------- |
+| `reserve(size_t new_cap)`    | **Rezervuoja** nurodytą atminties kiekį (`new_cap`).                  |
+| `shrink_to_fit()`            | **Sumažina talpą** iki dabartinio elementų skaičiaus (dydžio).         |
+| `reallocate(size_t new_cap)` | **(Privatus) Perplanuoja** atmintį. Naudojamas vidiniams perskirstymams. |
+| `getReallocationCount() const` | Grąžina **atminties perskirstymų skaičių**.                    |
+
+### Modifikavimo Funkcijos
+
+| Funkcija                          | Aprašymas                                                      |
+| :-------------------------------- | :------------------------------------------------------------- |
+| `push_back(const T& value)`       | Prideda elementą į vektoriaus **galą** (kopija).                  |
+| `push_back(T&& value)`            | Prideda elementą į vektoriaus **galą** (perkėlimas).              |
+| `pop_back()`                      | Pašalina **paskutinį** elementą.                                 |
+| `clear()`                         | **Išvalo** vektorių (dydis tampa 0).                            |
+| `resize(size_t new_size)`         | Keičia vektoriaus dydį. Nauji elementai neinicijuojami.          |
+| `resize(size_t new_size, const T& value)` | Keičia vektoriaus dydį ir inicijuoja naujus elementus nurodyta `value`. |
+| `insert(size_t index, const T& value)` | **Įterpia** elementą nurodytoje pozicijoje.                      |
+| `erase(size_t index)`             | **Pašalina** elementą nurodytoje pozicijoje.                     |
+| `swap(Vector<T>& other)`          | **Sukeičia** dviejų vektorių turinį.                             |
+| `assign(size_t count, const T& value)` | Priskiria `count` elementų su ta pačia `value`.                  |
+
+### Palyginimo Operatoriai
+
+| Funkcija                      | Aprašymas                                       |
+| :---------------------------- | :---------------------------------------------- |
+| `operator==(const Vector<T>& other) const` | Patikrina, ar du vektoriai yra **lygūs**.      |
+| `operator!=(const Vector<T>& other) const` | Patikrina, ar du vektoriai yra **nelygūs**.    |
+| `operator<(const Vector<T>& other) const`  | Patikrina, ar dabartinis vektorius yra **mažesnis** už kitą. |
+| `operator>(const Vector<T>& other) const`  | Patikrina, ar dabartinis vektorius yra **didesnis** už kitą. |
+
+### Paieškos Funkcijos
+
+| Funkcija                 | Aprašymas                                          |
+| :----------------------- | :------------------------------------------------- |
+| `contains(const T& value) const` | Patikrina, ar vektoriuje yra nurodyta `value`.    |
+| `index_of(const T& value) const` | Grąžina pirmosios `value` pasikartojimo indeksą, arba `-1` jei nerasta. |
+
+### Kitos Naudingos Funkcijos
+
+| Funkcija                    | Aprašymas                                                            |
+| :-------------------------- | :------------------------------------------------------------------- |
+| `slice(size_t start, size_t end) const` | Grąžina naują vektorių, sudarytą iš elementų nuo `start` iki `end-1`. |
+| `sort()`                    | **Rūšiuoja** vektoriaus elementus.                                   |
+| `unique()`                  | Pašalina **pasikartojančius** elementus iš surūšiuoto vektoriaus.   |
+| `map(std::function<T(const T&)> func) const` | Grąžina naują vektorių, pritaikytą funkciją kiekvienam elementui. |
+| `reverse()`                 | **Apverčia** vektoriaus elementų tvarką.                             |
+| `remove(const T& value)`    | Pašalina **pirmą pasikartojančią** nurodytą reikšmę.                  |
 
 ## Pradinis Vector testas
 Atliktas pradinis Vector testas lyginant su std::vector. Patikrintas bazinis funkcionalumas. Testas aprašytas `src`/`functions.cpp` faile -> `void testOwnVector()`. Jį galima įvykdyti pasirinkus Menu -> testavimas -> nuosavo vektoriaus testavimas.
@@ -132,4 +254,4 @@ Kad įsitikint, jog klasė `Zmogus` yra abstrakti, reikia atkomentuoti funkciją
 Sukurta klasę aprašanti dokumentacija, HTML ir TEX formatais, su sukompiliuotu PDF failu. Atlikti Catch2 testai faile `src`/`catchTest.cpp`.
 
 ## v3.0
-Implementuotas nuosavas `Vector` padengiantis daugiau nei 80% `std::vector` funkcionalumo. Atlikti efektyvumo bei funkcionalumo testavimai.
+Implementuotas nuosavas `Vector` padengiantis daugiau nei 80% `std::vector` funkcionalumo. Atlikti efektyvumo bei funkcionalumo testavimai, programa perrašyta ant nuosavo `Vector`.
