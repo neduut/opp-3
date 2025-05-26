@@ -413,7 +413,7 @@ void testRuleOfFive() {
 void testOwnVector() {
     Vector<int> myVec;
     std::vector<int> stdVec;
-    
+
     myVec.push_back(5);
     stdVec.push_back(5);
     myVec.push_back(10);
@@ -450,7 +450,7 @@ void testOwnVector() {
     }
     std::cout << (match ? "OK" : "FAIL") << std::endl;
 
-    std::cout << "\nTavo Vector: ";
+    std::cout << "\nNuosavas Vector: ";
     for (size_t i = 0; i < myVec.size(); ++i) std::cout << myVec[i] << " ";
     std::cout << "\nstd::vector: ";
     for (size_t i = 0; i < stdVec.size(); ++i) std::cout << stdVec[i] << " ";
