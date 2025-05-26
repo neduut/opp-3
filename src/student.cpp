@@ -107,13 +107,13 @@ Student::~Student() {
     ++dstCount;
 }
 
-void Student::readInput(std::vector<Student>& students, char menuChoice) {
+void Student::readInput(Vector<Student>& students, char menuChoice) {
     students.reserve(10000);
     string choice;
     do {
         string firstName = GetFirstName(menuChoice);
         string lastName = GetLastName(menuChoice);
-        vector<int> marks = GetHomeworkMarks(menuChoice);
+        Vector<int> marks = GetHomeworkMarks(menuChoice);
         int examMark = GetExamMark(menuChoice);
 
         Student temp;
@@ -132,7 +132,7 @@ void Student::readInput(std::vector<Student>& students, char menuChoice) {
     students.shrink_to_fit();
 }
 
-void Student::readFromFile(std::vector<Student>& students, int fileSize) {
+void Student::readFromFile(Vector<Student>& students, int fileSize) {
     try {
         students.reserve(fileSize);
 
@@ -170,7 +170,7 @@ void Student::calculateFinalMarks() {
     medianFinal_ = median(marks_);
 }
 
-float Student::average(const std::vector<int>& marks) const {
+float Student::average(const Vector<int>& marks) const {
     if (marks.empty()) {
         return 0.0;
     }
@@ -178,8 +178,8 @@ float Student::average(const std::vector<int>& marks) const {
     return sum / marks.size();
 }
 
-float Student::median(const std::vector<int>& marks) const {
-    std::vector<int> sortedMarks = marks;
+float Student::median(const Vector<int>& marks) const {
+    Vector<int> sortedMarks = marks;
     std::sort(sortedMarks.begin(), sortedMarks.end());
     size_t size = sortedMarks.size();
     if (size == 0) {
@@ -192,21 +192,21 @@ float Student::median(const std::vector<int>& marks) const {
     }
 }
 
-void sortStudents(std::vector<Student>& students, char sortType) {
+void sortStudents(Vector<Student>& students, char sortType) {
     if (sortType == 1) {
-        stable_sort(students.begin(), students.end(), [](const Student& a, const Student& b) {
+        std::stable_sort(students.begin(), students.end(), [](const Student& a, const Student& b) {
             return a.getFirstName() < b.getFirstName();
         });
     } else if (sortType == 2) {
-        stable_sort(students.begin(), students.end(), [](const Student& a, const Student& b) {
+        std::stable_sort(students.begin(), students.end(), [](const Student& a, const Student& b) {
             return a.getLastName() < b.getLastName();
         });
     } else if (sortType == 3) {
-        stable_sort(students.begin(), students.end(), [](const Student& a, const Student& b) {
+        std::stable_sort(students.begin(), students.end(), [](const Student& a, const Student& b) {
             return a.getAvgFinal() < b.getAvgFinal();
         });
     } else {
-        stable_sort(students.begin(), students.end(), [](const Student& a, const Student& b) {
+        std::stable_sort(students.begin(), students.end(), [](const Student& a, const Student& b) {
             return a.getMedianFinal() < b.getMedianFinal();
         });
     }

@@ -1,5 +1,6 @@
 #pragma once
 #include "mylib.h"
+#include "ownVector.h"
 
 // requests
 string getYesNo();
@@ -13,7 +14,7 @@ int getFileSize();
 string GetFirstName(char menuChoice);
 string GetLastName(char menuChoice);
 int GetExamMark(char menuChoice);
-vector<int> GetHomeworkMarks(char menuChoice);
+Vector<int> GetHomeworkMarks(char menuChoice);
 
 // validations
 bool isNameValid(string name);

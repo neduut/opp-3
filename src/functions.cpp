@@ -5,7 +5,7 @@
 #include "student.h"
 #include <cassert>
 
-void handleProgramMenu(std::vector<Student>& students) {
+void handleProgramMenu(Vector<Student>& students) {
     while (true) {
         int menuChoice = getProgramMenuChoice();
 
@@ -17,8 +17,8 @@ void handleProgramMenu(std::vector<Student>& students) {
                 int sortType = getSortType();    // by first name, last name or final mark?
                 int outputType = getPrintType(); // to console or to file?
 
-                vector<Student> kietiakai;
-                vector<Student> vargsiukai;
+                Vector<Student> kietiakai;
+                Vector<Student> vargsiukai;
 
                 // separate students into 2 groups
                 groupStudents(students, kietiakai, vargsiukai, groupType);
@@ -89,7 +89,7 @@ void generateFile(int size) {
             throw std::runtime_error(FILE_OPEN_ERROR);
         }
 
-        vector<string> lines;
+        Vector<string> lines;
         lines.reserve(size + 1); // Reserve space for size + 1 (header)
 
         // Add header
@@ -127,7 +127,7 @@ void generateFile(int size) {
     }
 }
 
-void groupStudents(vector<Student>& students, vector<Student>& kietiakai, vector<Student>& vargsiukai, int groupType) {
+void groupStudents(Vector<Student>& students, Vector<Student>& kietiakai, Vector<Student>& vargsiukai, int groupType) {
     kietiakai.reserve(students.size());
     vargsiukai.reserve(students.size());
 
@@ -145,7 +145,7 @@ void groupStudents(vector<Student>& students, vector<Student>& kietiakai, vector
     students.clear();
 }
 
-void printToConsole(vector<Student>& kietiakai, vector<Student>& vargsiukai) {
+void printToConsole(Vector<Student>& kietiakai, Vector<Student>& vargsiukai) {
     cout << left << setw(17) << "getFirstName"
          << setw(17) << "getLastName"
          << setw(23) << "Galutinis (Vid.)"
@@ -174,14 +174,14 @@ void printToConsole(vector<Student>& kietiakai, vector<Student>& vargsiukai) {
     }
 }
 
-void printToFile(vector<Student>& students, const string& fileName) {
+void printToFile(Vector<Student>& students, const string& fileName) {
     try {
-        ofstream file("files/" + fileName);
+        ofstream file("../files/" + fileName);
         if (!file) {
             throw std::runtime_error(FILE_OPEN_ERROR);
         }
 
-        vector<string> lines;
+        Vector<string> lines;
         lines.reserve(students.size() + 2);
 
         ostringstream header;
@@ -218,7 +218,7 @@ void fileGenTest(int size) {
     std::ofstream runTimeResults("analysis/class/genTest.txt", std::ios::app); // open file in append mode
 
     if (runTimeResults.is_open()) {
-        runTimeResults << "Konteineris: vector\n";
+        runTimeResults << "Konteineris: Vector\n";
         runTimeResults << "Failas: studentai" << size << ".txt\n";
 
         TimeMeasurement genTime("Failo generavimas");
@@ -240,20 +240,20 @@ void programTest(int size) {
     std::ofstream runTimeResults("analysis/class/flags/O3.txt", std::ios::app); // open file in append mode
 
     if (runTimeResults.is_open()) {
-        runTimeResults << "Konteineris: vector\n";
+        runTimeResults << "Konteineris: Vector\n";
         runTimeResults << "Failas: studentai" << size << ".txt\n";
         TimeMeasurement programTime("Programos vykdymo laikas");
         programTime.start();
 
-        vector<Student> students;
+        Vector<Student> students;
 
         TimeMeasurement readTime("Duomenų nuskaitymas iš failo");
         readTime.start();
         Student::readFromFile(students, size);
         readTime.stop(runTimeResults); 
 
-        vector<Student> kietiakai;
-        vector<Student> vargsiukai;
+        Vector<Student> kietiakai;
+        Vector<Student> vargsiukai;
 
         TimeMeasurement groupingTime("Studentų rūšiavimas į dvi grupes");
         groupingTime.start();
@@ -363,7 +363,7 @@ void testRuleOfFive() {
     cout << "Rezultatas: " << s8 << endl;
     assert(s8.getFirstName() == "Antanas");
     assert(s8.getLastName() == "Antanaitis");
-    assert((s8.getHomeworkMarks() == vector<int>{9, 8, 7, 6, 5}));
+    assert((s8.getHomeworkMarks() == Vector<int>{9, 8, 7, 6, 5}));
     assert(s8.getExamMark() == 9);
 
     // 9th test 
@@ -382,7 +382,7 @@ void testRuleOfFive() {
     testFile2 << "Petras Petrauskas 8 9 7 10 9 5" << endl;
     testFile2.close();
 
-    std::vector<Student> tempStudents;
+    Vector<Student> tempStudents;
     Student::readFromFile(tempStudents, 3);
     cout << "Gauta studentu: " << tempStudents.size() << endl;
     assert(tempStudents.size() == 3);

@@ -144,18 +144,19 @@ Vektorius aprašytas `include`/`ownVector.h` faile.
 
 ### Modifikavimo Funkcijos
 
-| Funkcija                          | Aprašymas                                                      |
-| :-------------------------------- | :------------------------------------------------------------- |
-| `push_back(const T& value)`       | Prideda elementą į vektoriaus **galą** (kopija).                  |
-| `push_back(T&& value)`            | Prideda elementą į vektoriaus **galą** (perkėlimas).              |
-| `pop_back()`                      | Pašalina **paskutinį** elementą.                                 |
-| `clear()`                         | **Išvalo** vektorių (dydis tampa 0).                            |
-| `resize(size_t new_size)`         | Keičia vektoriaus dydį. Nauji elementai neinicijuojami.          |
-| `resize(size_t new_size, const T& value)` | Keičia vektoriaus dydį ir inicijuoja naujus elementus nurodyta `value`. |
-| `insert(size_t index, const T& value)` | **Įterpia** elementą nurodytoje pozicijoje.                      |
-| `erase(size_t index)`             | **Pašalina** elementą nurodytoje pozicijoje.                     |
-| `swap(Vector<T>& other)`          | **Sukeičia** dviejų vektorių turinį.                             |
-| `assign(size_t count, const T& value)` | Priskiria `count` elementų su ta pačia `value`.                  |
+| Funkcija                                  | Aprašymas                                                                 |
+| :---------------------------------------- | :------------------------------------------------------------------------ |
+| `push_back(const T& value)`               | Prideda elementą į vektoriaus **galą** (kopija).                            |
+| `push_back(T&& value)`                    | Prideda elementą į vektoriaus **galą** (perkėlimas).                       |
+| `emplace_back(Args&&... args)`           | Konstruoja elementą tiesiogiai vektoriaus gale. Tai efektyviau, nes išvengiama kopijavimo/perkėlimo. |
+| `pop_back()`                              | Pašalina **paskutinį** elementą.                                          |
+| `clear()`                                 | **Išvalo** vektorių (dydis tampa 0).                                     |
+| `resize(size_t new_size)`                 | Keičia vektoriaus dydį. Nauji elementai neinicijuojami.                   |
+| `resize(size_t new_size, const T& value)` | Keičia vektoriaus dydį ir inicijuoja naujus elementus nurodyta `value`.   |
+| `insert(size_t index, const T& value)`    | **Įterpia** elementą nurodytoje pozicijoje.                               |
+| `erase(size_t index)`                     | **Pašalina** elementą nurodytoje pozicijoje.                              |
+| `swap(Vector<T>& other)`                  | **Sukeičia** dviejų vektorių turinį.                                     |
+| `assign(size_t count, const T& value)`    | Priskiria `count` elementų su ta pačia `value`.                           |
 
 ### Palyginimo Operatoriai
 

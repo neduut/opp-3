@@ -15,15 +15,7 @@ int main() {
     SetConsoleOutputCP(65001); 
     #endif
 
-
-    /*std::vector<unsigned int> dydziai = {10000, 100000, 1000000, 10000000};
-    for (unsigned int d : dydziai) {
-        matuotiSparta(d);
-    }*/
-
-    //skaiciuotiPerskirstymus(100000000);
-
-    vector<Student> students;
+    Vector<Student> students;
 
     int choice = getMenuChoice();
 

@@ -70,6 +70,14 @@ TEST_CASE("Modifikavimo metodai") {
         REQUIRE(v.back() == 2);
     }
 
+    SECTION("Emplace back") {
+        v.emplace_back(99);
+        REQUIRE(v.back() == 99);
+        v.emplace_back(123);
+        REQUIRE(v.size() == 2);
+        REQUIRE(v[1] == 123);
+    }
+
     SECTION("Insert ir erase") {
         v.insert(0, 10);
         v.insert(1, 20);

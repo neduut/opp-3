@@ -4,12 +4,12 @@
 #include "ownVector.h"
 #include <cassert>
 
-void handleProgramMenu(vector<Student>& students);
+void handleProgramMenu(Vector<Student>& students);
 void handleTestMenu();
 void generateFile(int size);
-void groupStudents(vector<Student>& students, vector<Student>& kietiakai, vector<Student>& vargsiukai, int groupType);
-void printToConsole(vector<Student>& kietiakai, vector<Student>& vargsiukai);
-void printToFile(vector<Student>& students, const string& fileName);
+void groupStudents(Vector<Student>& students, Vector<Student>& kietiakai, Vector<Student>& vargsiukai, int groupType);
+void printToConsole(Vector<Student>& kietiakai, Vector<Student>& vargsiukai);
+void printToFile(Vector<Student>& students, const string& fileName);
 void fileGenTest(int size);
 void programTest(int size);
 void testRuleOfFive();

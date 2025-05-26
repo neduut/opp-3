@@ -1,5 +1,6 @@
 #pragma once
 #include "zmogus.h"
+#include "ownVector.h"
 #include <vector>
 #include <numeric>
 #include <algorithm>
@@ -8,20 +9,20 @@ extern int dstCount; // for destructor test
 
 class Student : public Zmogus {
 private:
-    std::vector<int> marks_;
+    Vector<int> marks_;
     int examMark_;
     float avgFinal_;
     float medianFinal_;
 
     // private methods
-    float average(const std::vector<int>& marks) const;
-    float median(const std::vector<int>& marks) const;
+    float average(const Vector<int>& marks) const;
+    float median(const Vector<int>& marks) const;
 
 public:
     // constructors 
     Student();
     Student(std::istream& is);
-    /*Student(const std::string& firstName, const std::string& lastName, const std::vector<int>& marks, int examMark)
+    /*Student(const std::string& firstName, const std::string& lastName, const std::Vector<int>& marks, int examMark)
         : Zmogus(firstName, lastName), marks_(marks), examMark_(examMark) {
         calculateFinalMarks();
     }*/
@@ -34,13 +35,13 @@ public:
     ~Student(); // destructor
 
     // getters
-    const std::vector<int>& getHomeworkMarks() const { return marks_; }
+    const Vector<int>& getHomeworkMarks() const { return marks_; }
     int getExamMark() const { return examMark_; }
     float getAvgFinal() const { return avgFinal_; }
     float getMedianFinal() const { return medianFinal_; }
     
     // setters
-    void setMarks(std::vector<int> marks) { marks_ = marks; }
+    void setMarks(Vector<int> marks) { marks_ = marks; }
     void setExamMark(int examMark) { examMark_ = examMark; }
 
     // implementation of virtual functions
@@ -50,9 +51,8 @@ public:
     // methods
     std::istream& readStudent(std::istream& is);
     void calculateFinalMarks();
-    static void readInput(std::vector<Student>& students, char menuChoice);
-    static void readFromFile(std::vector<Student>& students, int fileSize);
+    static void readInput(Vector<Student>& students, char menuChoice);
+    static void readFromFile(Vector<Student>& students, int fileSize);
 };
 
-
-void sortStudents(std::vector<Student>& students, char sortType);
+void sortStudents(Vector<Student>& students, char sortType);

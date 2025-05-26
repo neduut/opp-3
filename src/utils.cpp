@@ -157,8 +157,8 @@ int GetExamMark(char menuChoice) {
     return examMark;
 }
 
-vector<int> GetHomeworkMarks(char menuChoice) {
-    vector<int> marks;
+Vector<int> GetHomeworkMarks(char menuChoice) {
+    Vector<int> marks;
     if (menuChoice == '1') {
         string tempMark;
         while (true) {

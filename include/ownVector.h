@@ -173,6 +173,13 @@ public:
         buffer[_size++] = std::move(value);
     }
 
+    // 25.1 emplace_back (with forwarding)
+    template <typename... Args>
+    void emplace_back(Args&&... args) {
+        if (_size >= _capacity) reserve(_capacity ? _capacity * 2 : 1);
+        buffer[_size++] = T(std::forward<Args>(args)...);
+    }
+
     // 26. pop_back
     void pop_back() { if (_size > 0) --_size; }
 
