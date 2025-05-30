@@ -200,13 +200,13 @@ Visi catch testai praėjo sėkmingai.
 ## Efektyvumo testai
 Atlikti efektyvumo testai lyginant `std::vector` ir nuosavą `Vector`, tuščius vektorius užpildant: 10000, 100000, 1000000, 10000000 ir 100000000 int elementų naudojant push_back() funkciją. Testas aprašytas `src`/`functions.cpp` faile -> `benchmarkPushBack`. Testavimui naudota `std::chrono::high_resolution_clock` biblioteka.
 
-| Elementų skaičius | std::vector (s) | Own Vector (s) | Own Vector reallocations |
-|-------------------|-----------------|----------------|--------------------------|
-| 10 000            | 0.00047         | 0.00015        | 15                       |
-| 100 000           | 0.00277         | 0.00120        | 18                       |
-| 1 000 000         | 0.02323         | 0.00635        | 21                       |
-| 10 000 000        | 0.18471         | 0.07862        | 25                       |
-| 100 000 000       | 1.86080         | 0.68589        | 28                       |
+| Elementų skaičius | std::vector (s) | Own Vector (s) | std::vector reallocations | Own Vector reallocations | 
+|-------------------|-----------------|----------------|---------------------------|--------------------------|
+| 10 000            | 0.00047         | 0.00015        | 15                        | 15                       |                         
+| 100 000           | 0.00277         | 0.00120        | 18                        | 18                       |
+| 1 000 000         | 0.02323         | 0.00635        | 21                        | 21                       |
+| 10 000 000        | 0.18471         | 0.07862        | 25                        | 25                       |
+| 100 000 000       | 1.86080         | 0.68589        | 28                        | 28                       |
 
 
 **Išvados:**
