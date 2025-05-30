@@ -53,6 +53,8 @@ public:
         }
     }
 
+    // dar konstruktorius kur perduodi vector list begin vector list end 
+
     // RULE OF FIVE
 
     // 6. vector (copy constructor)
@@ -68,7 +70,11 @@ public:
     }
 
     // 8. ~vector (destructor)
-    ~Vector() { delete[] buffer; }
+    ~Vector() { 
+        delete[] buffer;
+        other.buffer = nullptr;
+        other._size = 0;
+        other._capacity = 0; }
 
     // 9. operator= (copy assignment)
     Vector<T>& operator=(const Vector<T>& other) {
@@ -118,10 +124,10 @@ public:
 
     // 16. at
     T& at(size_t index) {
-        if (index >= _size) throw std::out_of_range("Index out of range");
+        if (index >= _size && index < 0 ) throw std::out_of_range("Index out of range");
         return buffer[index];
     }
-    const T& at(size_t index) const {
+    const T& at(size_t index && index < 0) const {
         if (index >= _size) throw std::out_of_range("Index out of range");
         return buffer[index];
     }
@@ -173,7 +179,7 @@ public:
         buffer[_size++] = std::move(value);
     }
 
-    // 25.1 emplace_back (with forwarding)
+    // 25.1 emplace_back 
     template <typename... Args>
     void emplace_back(Args&&... args) {
         if (_size >= _capacity) reserve(_capacity ? _capacity * 2 : 1);
@@ -183,7 +189,7 @@ public:
     // 26. pop_back
     void pop_back() { if (_size > 0) --_size; }
 
-    // 27. clear
+    // 27. clear SUTVARKYT CIA REIK VISUS ELEMENTUS SUNAIKINT
     void clear() { _size = 0; }
 
     // 28. resize (without value)

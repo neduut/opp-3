@@ -1,0 +1,340 @@
+\chapter{Aprašymas}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{Aprašymas@{Aprašymas}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+
+
+Programa, skirta apdoroti studentų duomenis. Programos versijose analizuojamas bei tobulinamas programos našumas, efektyvumas bei paruošimas vartotojuj.
+
+Yra sukurta programos dokumentacija -\/ {\ttfamily dokumentacija.\+pdf}.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Naudojimo instrukcijos}{Naudojimo instrukcijos}}\label{md__r_e_a_d_m_e_autotoc_md1}
+{\bfseries{Katalogai\+:}}
+\begin{DoxyItemize}
+\item {\ttfamily analysis} -\/ programos veikimo analizės rezultatai, naudojami tam tikrose programos versijose
+\item {\ttfamily docs} -\/ doxygen failai
+\item {\ttfamily files} -\/ programoje vykdymo metu naudojami .txt failai (įtrauktas į {\ttfamily .gitignore} ir atsiras tik paleidus programą)
+\item {\ttfamily include} -\/ antraščių {\ttfamily .h} failai
+\item {\ttfamily src} -\/ {\ttfamily .cpp} failai
+\end{DoxyItemize}
+
+{\bfseries{Kad paleisti programą, turite atlikti šiuos veiksmus\+:}}
+
+
+\begin{DoxyEnumerate}
+\item Įeikite į norimos versijos katalogą
+\item Paleiskite {\ttfamily run.\+bat} failą
+
+{\ttfamily run.\+bat} failas atliks šiuos veiksmus\+:
+\begin{DoxyItemize}
+\item Sukurs build katalogą
+\item Paleis CMake, kad sugeneruotų {\ttfamily Makefile}
+\item Sukompiliuos projektą naudodamas make komandą
+\item Paleis sukompiliuotą programą terminale
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+{\bfseries{Reikalavimai}}
+
+
+\begin{DoxyItemize}
+\item Operacinė sistema\+: Windows 10 x64-\/bit arba naujesnė versija
+\item Įdiegta CMake (3.\+25 arba naujesnė versija)
+\item Kompiliatorius\+: g++ (su C++11 arba naujesne versija)
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{\texorpdfstring{Duomenų įvestis}{Duomenų įvestis}}\label{md__r_e_a_d_m_e_autotoc_md2}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tipas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tipas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+Rankinis   &Vartotojas suveda duomenis ranka tiesiai į konsolę.    \\\cline{1-2}
+Automatinis   &Naudojamas vartotojui norint sugeneruoti atsitiktinius duomenis bei testavimui, naudojamas {\ttfamily istringstream}.    \\\cline{1-2}
+Iš failo   &Skaitomi duomenys iš failo naudojant {\ttfamily ifstream} (v1.\+2 teste numatytas vienas dydis -\/ 3, kitur galima rinktis iš 5 dydžių).   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{\texorpdfstring{Duomenų išvestis}{Duomenų išvestis}}\label{md__r_e_a_d_m_e_autotoc_md3}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tipas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tipas   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+Į ekraną   &Duomenys atvaizduojami konsolėje per {\ttfamily cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}    \\\cline{1-2}
+Į failą   &Duomenys saugomi faile per {\ttfamily ostringstream}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Kompiliavimas programavimo aplinkoje}{Kompiliavimas programavimo aplinkoje}}\label{md__r_e_a_d_m_e_autotoc_md4}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tipas        }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Aprašymas                                 }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tipas        }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Aprašymas                                 }\\\cline{1-2}
+\endhead
+Programa    &{\ttfamily cd build \&\& .\textbackslash{}Objektinis.\+exe} (nukreipia į MENU)    \\\cline{1-2}
+Catch2 testai    &{\ttfamily cd build \&\& .\textbackslash{}tests.\+exe}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsection{\texorpdfstring{MENU}{MENU}}\label{md__r_e_a_d_m_e_autotoc_md5}
+Paleidus programą, vartotojas pateks į meniu, kuriame galės pasirinkti ar nori vykdyti programą ar tyrimus. Žemiau pateikiami atitinkami MENU, kurie atsiras po pasirinkimo.\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{\texorpdfstring{Programos MENU}{Programos MENU}}\label{md__r_e_a_d_m_e_autotoc_md6}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Parinktis   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Parinktis   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\bfseries{1}}   &Įvesti viską rankiniu būdu    \\\cline{1-2}
+{\bfseries{2}}   &Generuoti atsitiktinius pažymius (vardus įvesti ranka)    \\\cline{1-2}
+{\bfseries{3}}   &Generuoti atsitiktinius vardus ir pažymius    \\\cline{1-2}
+{\bfseries{4}}   &Skaityti iš failo    \\\cline{1-2}
+{\bfseries{5}}   &Užbaigti programą   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{\texorpdfstring{Tyrimų MENU}{Tyrimų MENU}}\label{md__r_e_a_d_m_e_autotoc_md7}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Parinktis   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Parinktis   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\bfseries{1}}   &Failų generavimas    \\\cline{1-2}
+{\bfseries{2}}   &Programos veikimo laikas    \\\cline{1-2}
+{\bfseries{3}}   &Rule of Five testavimas    \\\cline{1-2}
+{\bfseries{4}}   &Nuosavo vektoriaus testavimas    \\\cline{1-2}
+{\bfseries{5}}   &Vector ir {\ttfamily std\+::vector} paskirstymo testavimas    \\\cline{1-2}
+{\bfseries{0}}   &Užbaigti programą   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysection{\texorpdfstring{Versija v3.\+0}{Versija v3.\+0}}\label{md__r_e_a_d_m_e_autotoc_md8}
+Šioje versijoje implementuotas nuosavas vektorius {\ttfamily Vector}, kuris padengia daugiau nei 80\% {\ttfamily std\+::vector} funkcionalumo. Vektorius aprašytas {\ttfamily include}/{\ttfamily own\+Vector.\+h} faile.\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{\texorpdfstring{{\ttfamily Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} Klasės Aprašymas}{{\ttfamily Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} Klasės Aprašymas}}\label{md__r_e_a_d_m_e_autotoc_md9}
+Šiame skyriuje aprašomi {\ttfamily Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} klasės metodai, kurie suteikia dinaminio masyvo funkcionalumą, panašų į {\ttfamily std\+::vector}.\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsubsection{\texorpdfstring{Konstruktoriai}{Konstruktoriai}}\label{md__r_e_a_d_m_e_autotoc_md10}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\ttfamily Vector()}   &{\bfseries{Numatytasis konstruktorius.}} Sukuria tuščią vektorių.    \\\cline{1-2}
+{\ttfamily Vector(size\+\_\+t n)}   &Sukuria vektorių su {\ttfamily n} elementų.    \\\cline{1-2}
+{\ttfamily Vector(size\+\_\+t n, const T\& value)}   &Sukuria vektorių su {\ttfamily n} elementų, inicijuotų nurodyta {\ttfamily value}.    \\\cline{1-2}
+{\ttfamily Vector(std\+::initializer\+\_\+list\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>} init)}   &Sukuria vektorių iš inicializavimo sąrašo.   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysubsubsection{\texorpdfstring{Rule of Five Metodai}{Rule of Five Metodai}}\label{md__r_e_a_d_m_e_autotoc_md11}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\ttfamily Vector(const Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}\& other)}   &{\bfseries{Kopijavimo konstruktorius.}} Sukuria vektoriaus kopiją.    \\\cline{1-2}
+{\ttfamily Vector(Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}\&\& other) noexcept}   &{\bfseries{Perkėlimo konstruktorius.}} Perkėlia kitą vektorių.    \\\cline{1-2}
+{\ttfamily \texorpdfstring{$\sim$}{\string~}\+Vector()}   &{\bfseries{Destruktorius.}} Atlaisvina užimtą atmintį.    \\\cline{1-2}
+{\ttfamily Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}\& operator=(const Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}\& other)}   &{\bfseries{Kopijavimo priskyrimo operatorius.}} Kopijuoja kito vektoriaus turinį.    \\\cline{1-2}
+{\ttfamily Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}\& operator=(Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}\&\& other) noexcept}   &{\bfseries{Perkėlimo priskyrimo operatorius.}} Perkelia kito vektoriaus turinį.   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysubsubsection{\texorpdfstring{Elementų Prieiga}{Elementų Prieiga}}\label{md__r_e_a_d_m_e_autotoc_md12}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\ttfamily operator\mbox{[}$\,$\mbox{]}(size\+\_\+t index)}   &{\bfseries{Tiesioginė prieiga}} prie elemento pagal indeksą (nera saugus).    \\\cline{1-2}
+{\ttfamily const operator\mbox{[}$\,$\mbox{]}(size\+\_\+t index) const}   &Konstantiška versija.    \\\cline{1-2}
+{\ttfamily back()}   &Grąžina {\bfseries{paskutinį}} vektoriaus elementą.    \\\cline{1-2}
+{\ttfamily const back() const}   &Konstantiška versija.    \\\cline{1-2}
+{\ttfamily front()}   &Grąžina {\bfseries{pirmą}} vektoriaus elementą.    \\\cline{1-2}
+{\ttfamily const front() const}   &Konstantiška versija.    \\\cline{1-2}
+{\ttfamily data()}   &Grąžina {\bfseries{rodyklę}} į pirmojo elemento masyvą.    \\\cline{1-2}
+{\ttfamily const data() const}   &Konstantiška versija.    \\\cline{1-2}
+{\ttfamily at(size\+\_\+t index)}   &{\bfseries{Saugus pasiekimas}} prie elemento pagal indeksą; meta {\ttfamily std\+::out\+\_\+of\+\_\+range} jei indeksas už ribų.    \\\cline{1-2}
+{\ttfamily const at(size\+\_\+t index) const}   &Konstantiška versija.   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysubsubsection{\texorpdfstring{Iteratoriai}{Iteratoriai}}\label{md__r_e_a_d_m_e_autotoc_md13}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\ttfamily begin()}   &Grąžina rodyklę į {\bfseries{pirmą elementą}}.    \\\cline{1-2}
+{\ttfamily const begin() const}   &Konstantiška versija.    \\\cline{1-2}
+{\ttfamily end()}   &Grąžina rodyklę į elementą {\bfseries{už paskutinio}}.    \\\cline{1-2}
+{\ttfamily const end() const}   &Konstantiška versija.   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysubsubsection{\texorpdfstring{Dydis ir Talpa}{Dydis ir Talpa}}\label{md__r_e_a_d_m_e_autotoc_md14}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\ttfamily size() const}   &Grąžina {\bfseries{elementų kiekį}} (dydį) vektoriuje.    \\\cline{1-2}
+{\ttfamily capacity() const}   &Grąžina {\bfseries{rezervuotą atminties kiekį}}.    \\\cline{1-2}
+{\ttfamily empty() const}   &Patikrina, ar vektorius yra {\bfseries{tuščias}}.   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysubsubsection{\texorpdfstring{Atminties Valdymas}{Atminties Valdymas}}\label{md__r_e_a_d_m_e_autotoc_md15}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\ttfamily reserve(size\+\_\+t new\+\_\+cap)}   &{\bfseries{Rezervuoja}} nurodytą atminties kiekį ({\ttfamily new\+\_\+cap}).    \\\cline{1-2}
+{\ttfamily shrink\+\_\+to\+\_\+fit()}   &{\bfseries{Sumažina talpą}} iki dabartinio elementų skaičiaus (dydžio).    \\\cline{1-2}
+{\ttfamily reallocate(size\+\_\+t new\+\_\+cap)}   &{\bfseries{(Privatus) Perplanuoja}} atmintį. Naudojamas vidiniams perskirstymams.    \\\cline{1-2}
+{\ttfamily get\+Reallocation\+Count() const}   &Grąžina {\bfseries{atminties perskirstymų skaičių}}.   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysubsubsection{\texorpdfstring{Modifikavimo Funkcijos}{Modifikavimo Funkcijos}}\label{md__r_e_a_d_m_e_autotoc_md16}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\ttfamily push\+\_\+back(const T\& value)}   &Prideda elementą į vektoriaus {\bfseries{galą}} (kopija).    \\\cline{1-2}
+{\ttfamily push\+\_\+back(T\&\& value)}   &Prideda elementą į vektoriaus {\bfseries{galą}} (perkėlimas).    \\\cline{1-2}
+{\ttfamily emplace\+\_\+back(Args\&\&... args)}   &Konstruoja elementą tiesiogiai vektoriaus gale. Tai efektyviau, nes išvengiama kopijavimo/perkėlimo.    \\\cline{1-2}
+{\ttfamily pop\+\_\+back()}   &Pašalina {\bfseries{paskutinį}} elementą.    \\\cline{1-2}
+{\ttfamily clear()}   &{\bfseries{Išvalo}} vektorių (dydis tampa 0).    \\\cline{1-2}
+{\ttfamily resize(size\+\_\+t new\+\_\+size)}   &Keičia vektoriaus dydį. Nauji elementai neinicijuojami.    \\\cline{1-2}
+{\ttfamily resize(size\+\_\+t new\+\_\+size, const T\& value)}   &Keičia vektoriaus dydį ir inicijuoja naujus elementus nurodyta {\ttfamily value}.    \\\cline{1-2}
+{\ttfamily insert(size\+\_\+t index, const T\& value)}   &{\bfseries{Įterpia}} elementą nurodytoje pozicijoje.    \\\cline{1-2}
+{\ttfamily erase(size\+\_\+t index)}   &{\bfseries{Pašalina}} elementą nurodytoje pozicijoje.    \\\cline{1-2}
+{\ttfamily swap(Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}\& other)}   &{\bfseries{Sukeičia}} dviejų vektorių turinį.    \\\cline{1-2}
+{\ttfamily assign(size\+\_\+t count, const T\& value)}   &Priskiria {\ttfamily count} elementų su ta pačia {\ttfamily value}.   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysubsubsection{\texorpdfstring{Palyginimo Operatoriai}{Palyginimo Operatoriai}}\label{md__r_e_a_d_m_e_autotoc_md17}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\ttfamily operator==(const Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}\& other) const}   &Patikrina, ar du vektoriai yra {\bfseries{lygūs}}.    \\\cline{1-2}
+{\ttfamily operator!=(const Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}\& other) const}   &Patikrina, ar du vektoriai yra {\bfseries{nelygūs}}.    \\\cline{1-2}
+{\ttfamily operator\texorpdfstring{$<$}{<}(const Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}\& other) const}   &Patikrina, ar dabartinis vektorius yra {\bfseries{mažesnis}} už kitą.    \\\cline{1-2}
+{\ttfamily operator\texorpdfstring{$>$}{>}(const Vector\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}\& other) const}   &Patikrina, ar dabartinis vektorius yra {\bfseries{didesnis}} už kitą.   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md18}{}\doxysubsubsection{\texorpdfstring{Paieškos Funkcijos}{Paieškos Funkcijos}}\label{md__r_e_a_d_m_e_autotoc_md18}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\ttfamily contains(const T\& value) const}   &Patikrina, ar vektoriuje yra nurodyta {\ttfamily value}.    \\\cline{1-2}
+{\ttfamily index\+\_\+of(const T\& value) const}   &Grąžina pirmosios {\ttfamily value} pasikartojimo indeksą, arba {\ttfamily -\/1} jei nerasta.   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md19}{}\doxysubsubsection{\texorpdfstring{Kitos Naudingos Funkcijos}{Kitos Naudingos Funkcijos}}\label{md__r_e_a_d_m_e_autotoc_md19}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Funkcija   }&\cellcolor{\tableheadbgcolor}\textbf{ Aprašymas    }\\\cline{1-2}
+\endhead
+{\ttfamily slice(size\+\_\+t start, size\+\_\+t end) const}   &Grąžina naują vektorių, sudarytą iš elementų nuo {\ttfamily start} iki {\ttfamily end-\/1}.    \\\cline{1-2}
+{\ttfamily sort()}   &{\bfseries{Rūšiuoja}} vektoriaus elementus.    \\\cline{1-2}
+{\ttfamily unique()}   &Pašalina {\bfseries{pasikartojančius}} elementus iš surūšiuoto vektoriaus.    \\\cline{1-2}
+{\ttfamily map(std\+::function\texorpdfstring{$<$}{<}T(const T\&)\texorpdfstring{$>$}{>} func) const}   &Grąžina naują vektorių, pritaikytą funkciją kiekvienam elementui.    \\\cline{1-2}
+{\ttfamily reverse()}   &{\bfseries{Apverčia}} vektoriaus elementų tvarką.    \\\cline{1-2}
+{\ttfamily remove(const T\& value)}   &Pašalina {\bfseries{pirmą pasikartojančią}} nurodytą reikšmę.   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md20}{}\doxysubsection{\texorpdfstring{Pradinis Vector testas}{Pradinis Vector testas}}\label{md__r_e_a_d_m_e_autotoc_md20}
+Atliktas pradinis Vector testas lyginant su std\+::vector. Patikrintas bazinis funkcionalumas. Testas aprašytas {\ttfamily src}/{\ttfamily functions.\+cpp} faile -\/\texorpdfstring{$>$}{>} {\ttfamily void test\+Own\+Vector()}. Jį galima įvykdyti pasirinkus Menu -\/\texorpdfstring{$>$}{>} testavimas -\/\texorpdfstring{$>$}{>} nuosavo vektoriaus testavimas. 
+
+Visi pradiniai testai praėjo sėkmingai.\hypertarget{md__r_e_a_d_m_e_autotoc_md21}{}\doxysubsection{\texorpdfstring{UNIT testai}{UNIT testai}}\label{md__r_e_a_d_m_e_autotoc_md21}
+Atlikti catch2 unit testai pilnam nuosavo vektoriaus klasės funkcionalumui ištirti. Aprašyti {\ttfamily src}/{\ttfamily catch\+Test.\+cpp} faile. 
+
+Visi catch testai praėjo sėkmingai.\hypertarget{md__r_e_a_d_m_e_autotoc_md22}{}\doxysubsection{\texorpdfstring{Efektyvumo testai}{Efektyvumo testai}}\label{md__r_e_a_d_m_e_autotoc_md22}
+Atlikti efektyvumo testai lyginant {\ttfamily std\+::vector} ir nuosavą {\ttfamily Vector}, tuščius vektorius užpildant\+: 10000, 100000, 1000000, 10000000 ir 100000000 int elementų naudojant push\+\_\+back() funkciją. Testas aprašytas {\ttfamily src}/{\ttfamily functions.\+cpp} faile -\/\texorpdfstring{$>$}{>} {\ttfamily benchmark\+Push\+Back}. Testavimui naudota {\ttfamily std\+::chrono\+::high\+\_\+resolution\+\_\+clock} biblioteka.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Elementų skaičius   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector (s)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Own Vector (s)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector reallocations   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Own Vector reallocations    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Elementų skaičius   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector (s)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Own Vector (s)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::vector reallocations   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Own Vector reallocations    }\\\cline{1-5}
+\endhead
+10 000   &0.\+00047   &0.\+00015   &15   &15    \\\cline{1-5}
+100 000   &0.\+00277   &0.\+00120   &18   &18    \\\cline{1-5}
+1 000 000   &0.\+02323   &0.\+00635   &21   &21    \\\cline{1-5}
+10 000 000   &0.\+18471   &0.\+07862   &25   &25    \\\cline{1-5}
+100 000 000   &1.\+86080   &0.\+68589   &28   &28   \\\cline{1-5}
+\end{longtabu}
+
+
+{\bfseries{Išvados\+:}}
+\begin{DoxyItemize}
+\item Nuosavas {\ttfamily Vector} konteineris parodė geresnį našumą už {\ttfamily std\+::vector}, ypač užpildant didesnius kiekius elementų.
+\item Perskirstymai (reallocations) nuosavam {\ttfamily Vector} vyksta maždaug 15-\/28 kartus priklausomai nuo duomenų kiekio, kas atitinka dvigubinimo strategiją atminties valdyme ir yra tokie aptys kaip ir {\ttfamily std\+::vector}.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md23}{}\doxysection{\texorpdfstring{Programos versijos}{Programos versijos}}\label{md__r_e_a_d_m_e_autotoc_md23}
+Kiekviena versija išsamiai aprašyta jos {\ttfamily README.\+md} faile. Programos v1.\+0 versijos yra atskiroje {\ttfamily opp} repozitorijoje.\hypertarget{md__r_e_a_d_m_e_autotoc_md24}{}\doxysubsection{\texorpdfstring{v.\+pradinė}{v.\+pradinė}}\label{md__r_e_a_d_m_e_autotoc_md24}
+C++ programa, skirta studentų pažymiams apskaičiuoti, naudojant vidurkio ir medianos metodus. Vartotojai įveda studentų vardus, namų darbų pažymius ir egzaminų rezultatus, o programa pateikia suformatuotus rezultatus. {\ttfamily Makefile} automatizuoja kompiliavimą, o {\ttfamily gitignore} pašalina nereikalingus failus iš „\+Git“ sekimo.\hypertarget{md__r_e_a_d_m_e_autotoc_md25}{}\doxysubsection{\texorpdfstring{v0.\+1}{v0.\+1}}\label{md__r_e_a_d_m_e_autotoc_md25}
+Optimizuoti failai ir pataisytos galutinio pažymio apskaičiavimo funkcijos. Įgyvendinti du skirtingi vykdomieji failai\+: vienas su vektorių masyvais, kitas – su dinaminiais C masyvais pažymiams. Pridėta {\ttfamily meniu} funkcija, leidžianti atsitiktinai generuoti pasirinktus duomenis.\hypertarget{md__r_e_a_d_m_e_autotoc_md26}{}\doxysubsection{\texorpdfstring{v0.\+2}{v0.\+2}}\label{md__r_e_a_d_m_e_autotoc_md26}
+Prie meniu pridėta failų skaitymo parinktis, rūšiavimo parinktys (pagal vardą, pavardę ir galutinį pažymį) ir parinktis pasirinkti, ar spausdinti rezultatą į monitorių, ar į failą. Taip pat pridėti {\ttfamily Time\+Measurement} failai, skirti sekti laiką ir apskaičiuoti vidutinius testavimo laikus.\hypertarget{md__r_e_a_d_m_e_autotoc_md27}{}\doxysubsection{\texorpdfstring{v0.\+3}{v0.\+3}}\label{md__r_e_a_d_m_e_autotoc_md27}
+Pridėtas išimčių tvarkymas funkcijoms {\ttfamily read\+From\+File}, {\ttfamily output} ir {\ttfamily sort\+Students}. Sukurti aplankai ir atnaujintas {\ttfamily makefile}.\hypertarget{md__r_e_a_d_m_e_autotoc_md28}{}\doxysubsection{\texorpdfstring{v0.\+4}{v0.\+4}}\label{md__r_e_a_d_m_e_autotoc_md28}
+Pridėta failų generavimo funkcija su pasirinktu dydžiu, studentų grupavimas į dvi grupes pagal pasirinktą galutinio pažymio tipą ir dvi laiko matavimo testavimo funkcijos. Pakeista {\ttfamily time\+Measurement} funkcija, kad testų rezultatai būtų spausdinami į failą, o ne į konsolę. Atnaujintas {\ttfamily README}, įtraukiant laiko matavimo testų rezultatus. Optimizuotos kelios funkcijos, siekiant geresnio našumo.\hypertarget{md__r_e_a_d_m_e_autotoc_md29}{}\doxysubsection{\texorpdfstring{v1.\+0prad}{v1.\+0prad}}\label{md__r_e_a_d_m_e_autotoc_md29}
+Pridėta nauja laiko testavimo funkcija ir versija su 3 skirtingais konteineriais\+: {\ttfamily vector}, {\ttfamily deque} ir {\ttfamily list}. Atliktas laiko tyrimas, o rezultatai pateikti faile {\ttfamily README}.\hypertarget{md__r_e_a_d_m_e_autotoc_md30}{}\doxysubsection{\texorpdfstring{v1.\+0}{v1.\+0}}\label{md__r_e_a_d_m_e_autotoc_md30}
+Pridėti testavimai su trimis skirtingomis strategijomis studentų rūšiavimo į grupes funkcijai. Optimizuotas geriausias rūšiavimas ({\ttfamily vector} konteinerio su pirma strategija). Atliktas spartos bei atminties naudojimo tyrimas, o rezultatai pateikti faile {\ttfamily README}. Pridėtas programos diegimo bei paleidimo {\ttfamily CMake} failas bei {\ttfamily README} aprašyta įdiegimo instrukcija.\hypertarget{md__r_e_a_d_m_e_autotoc_md31}{}\doxysubsection{\texorpdfstring{v1.\+1}{v1.\+1}}\label{md__r_e_a_d_m_e_autotoc_md31}
+{\ttfamily Vector} konteinerio versijoje duomenų struktūra pakeista iš {\ttfamily struct} į {\ttfamily class}. Atlikti programos spartos bei SSD naudojimo testai lyginant {\ttfamily struct} ir {\ttfamily class} su skirtingomis optimizavimo vėliavėlėmis\+: {\ttfamily O1}, {\ttfamily O2} ir {\ttfamily O3}. Tyrimo rezultatai aprašyti {\ttfamily README} faile.\hypertarget{md__r_e_a_d_m_e_autotoc_md32}{}\doxysubsection{\texorpdfstring{v1.\+2}{v1.\+2}}\label{md__r_e_a_d_m_e_autotoc_md32}
+Pašalinti {\ttfamily deque} bei {\ttfamily list} versijų katalogai. Pritaikyta Rule of Five ir persidengimo operatoriai. Atliktas testas patikrinantis {\ttfamily Student} klasės metodų veikimą, testui naudojami papildomi {\ttfamily .txt} failai kurie susikuria automatiškai.\hypertarget{md__r_e_a_d_m_e_autotoc_md33}{}\doxysubsection{\texorpdfstring{v1.\+5}{v1.\+5}}\label{md__r_e_a_d_m_e_autotoc_md33}
+Sukurta nauja bazinė klasė {\ttfamily Zmogus}. {\ttfamily Student} klasė paversta į derived. Patikrinta, ar nauji metodai praeina testus iš versijos 1.\+2 Kad įsitikint, jog klasė {\ttfamily Zmogus} yra abstrakti, reikia atkomentuoti funkciją {\ttfamily void test\+Zmogaus\+Class()} failuose {\ttfamily functions.\+cpp} bei {\ttfamily functions.\+h}.\hypertarget{md__r_e_a_d_m_e_autotoc_md34}{}\doxysubsection{\texorpdfstring{v2.\+0}{v2.\+0}}\label{md__r_e_a_d_m_e_autotoc_md34}
+Sukurta klasę aprašanti dokumentacija, HTML ir TEX formatais, su sukompiliuotu PDF failu. Atlikti Catch2 testai faile {\ttfamily src}/{\ttfamily catch\+Test.\+cpp}.\hypertarget{md__r_e_a_d_m_e_autotoc_md35}{}\doxysubsection{\texorpdfstring{v3.\+0}{v3.\+0}}\label{md__r_e_a_d_m_e_autotoc_md35}
+Implementuotas nuosavas {\ttfamily Vector} padengiantis daugiau nei 80\% {\ttfamily std\+::vector} funkcionalumo. Atlikti efektyvumo bei funkcionalumo testavimai, programa perrašyta ant nuosavo {\ttfamily Vector}. 

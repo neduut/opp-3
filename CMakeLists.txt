@@ -26,6 +26,7 @@ set(LIB_SOURCES
     src/student.cpp
     src/timeMeasurement.cpp
     src/utils.cpp
+    src/catchTest.cpp
 )
 
 add_library(Objektinis_lib STATIC ${LIB_SOURCES})
