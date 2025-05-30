@@ -411,7 +411,7 @@ void testRuleOfFive() {
     cout << "Destruktorius iškviestas " << dstCount << printCount(dstCount) << endl;
 }
 
-// norit testuoti Zmogaus klasę, atkomentuokite šią funkciją
+// norit testuoti Zmogaus klase, atkomentuokite sia funkcija
 /*void testZmogausClass() {  
     Zmogus zmogus; 
 }*/

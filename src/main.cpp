@@ -8,8 +8,6 @@
 #include <windows.h>
 #endif
 
-//void matuotiSparta(unsigned int dydis);
-
 int main() {
     #ifdef _WIN32
     SetConsoleOutputCP(65001); 
