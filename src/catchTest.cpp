@@ -7,7 +7,7 @@
 #include <fstream>
 #include <vector>
 #include <cstdio>
-#include "ownVector.h"  // Įsijunkite savo Vector klasės headerį
+#include "ownVector.h"  
 
 TEST_CASE("Konstruktoriai ir pagrindinės operacijos") {
     SECTION("Default konstruktorius") {
