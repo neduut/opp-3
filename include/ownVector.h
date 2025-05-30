@@ -274,7 +274,7 @@ public:
 
     // SEARCH
 
-    // 40. contains
+    // 40. contains - checks if value exists
     bool contains(const T& value) const {
         for (size_t i = 0; i < _size; ++i) {
             if (buffer[i] == value) return true;
@@ -292,7 +292,7 @@ public:
 
     // OTHER UTILITIES
 
-    // 42. slice
+    // 42. slice - creates a new Vector from a range
     Vector<T> slice(size_t start, size_t end) const {
         if (start > end || end > _size) throw std::out_of_range("Invalid slice range");
         Vector<T> result;
@@ -304,7 +304,7 @@ public:
     // 43. sort
     void sort() { std::sort(begin(), end()); }
 
-    // 44. unique
+    // 44. unique - removes duplicate
     void unique() {
         if (_size <= 1) return;
         sort();
@@ -314,7 +314,7 @@ public:
         }
         _size = j + 1;
     }
-    // 45. map
+    // 45. map - 
     Vector<T> map(std::function<T(const T&)> func) const {
         Vector<T> result;
         result.reserve(_size);
