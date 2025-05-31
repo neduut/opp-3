@@ -16,9 +16,9 @@ Yra sukurta programos dokumentacija - `dokumentacija.pdf`.
 
 **Kad paleisti programą, turite atlikti šiuos veiksmus:**
 
-1. Paleiskite setup.exe ir leiskite įdiegti programą
+1. Paleiskite `setup.exe` ir leiskite įdiegti programą
 2. Programa bus įdiegta -> `Program Files` -> `VU` -> `Neda` kataloge
-3. Paleiskite Objektinis.exe failą
+3. Paleiskite `Objektinis.exe` failą
 
 **Reikalavimai**
 
