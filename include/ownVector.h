@@ -33,18 +33,18 @@ public:
 
     // CONSTRUCTORS
 
-    // 2. vector (default constructor)
+    // 2. default constructor
     Vector() : buffer(nullptr), _size(0), _capacity(0) {}
 
-    // 3. vector (size constructor)
+    // 3. size constructor
     explicit Vector(size_t n) : buffer(new T[n]), _size(n), _capacity(n) {}
 
-    // 4. vector (size, value constructor)
+    // 4. size, value constructor
     Vector(size_t n, const T& value) : buffer(new T[n]), _size(n), _capacity(n) {
         for (size_t i = 0; i < n; ++i) buffer[i] = value;
     }
 
-    // 5. vector (initializer_list constructor)
+    // 5. initializer_list constructor
     Vector(std::initializer_list<T> init)
         : buffer(new T[init.size()]), _size(init.size()), _capacity(init.size()) {
         size_t i = 0;
@@ -53,16 +53,23 @@ public:
         }
     }
 
-    // dar konstruktorius kur perduodi vector list begin vector list end 
+    // 47. pointer constructor
+    // konstruktorius kur perduodi seno vector begin ir end ir ant jo uzraso nauja vektoriu
+    Vector(T* begin, T* end) : buffer(new T[end - begin]), _size(end - begin), _capacity(end - begin) {
+        size_t i = 0;
+        for (T* it = begin; it != end; ++it) {
+            buffer[i++] = *it;
+        }
+    }
 
     // RULE OF FIVE
 
-    // 6. vector (copy constructor)
+    // 6. copy constructor
     Vector(const Vector<T>& other) : buffer(new T[other._capacity]), _size(other._size), _capacity(other._capacity) {
         for (size_t i = 0; i < _size; ++i) buffer[i] = other.buffer[i];
     }
 
-    // 7. vector (move constructor)
+    // 7. move constructor
     Vector(Vector<T>&& other) noexcept : buffer(other.buffer), _size(other._size), _capacity(other._capacity) {
         other.buffer = nullptr;
         other._size = 0;
@@ -72,9 +79,10 @@ public:
     // 8. ~vector (destructor)
     ~Vector() { 
         delete[] buffer;
-        other.buffer = nullptr;
-        other._size = 0;
-        other._capacity = 0; }
+        //other.buffer = nullptr;
+        //other._size = 0;
+        //other._capacity = 0; 
+    }
 
     // 9. operator= (copy assignment)
     Vector<T>& operator=(const Vector<T>& other) {
@@ -127,8 +135,8 @@ public:
         if (index >= _size && index < 0 ) throw std::out_of_range("Index out of range");
         return buffer[index];
     }
-    const T& at(size_t index && index < 0) const {
-        if (index >= _size) throw std::out_of_range("Index out of range");
+    const T& at(size_t index) const {
+        if (index >= _size && index < 0) throw std::out_of_range("Index out of range");
         return buffer[index];
     }
 
@@ -179,7 +187,7 @@ public:
         buffer[_size++] = std::move(value);
     }
 
-    // 25.1 emplace_back 
+    // 46 emplace_back 
     template <typename... Args>
     void emplace_back(Args&&... args) {
         if (_size >= _capacity) reserve(_capacity ? _capacity * 2 : 1);
@@ -189,8 +197,13 @@ public:
     // 26. pop_back
     void pop_back() { if (_size > 0) --_size; }
 
-    // 27. clear SUTVARKYT CIA REIK VISUS ELEMENTUS SUNAIKINT
-    void clear() { _size = 0; }
+    // 27. clear
+    void clear() {
+    for (size_t i = 0; i < _size; ++i) {
+        buffer[i].~T(); 
+    }
+    _size = 0;
+    }
 
     // 28. resize (without value)
     void resize(size_t new_size) {
@@ -320,7 +333,7 @@ public:
         }
         _size = j + 1;
     }
-    // 45. map - 
+    // 45. map
     Vector<T> map(std::function<T(const T&)> func) const {
         Vector<T> result;
         result.reserve(_size);
