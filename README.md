@@ -250,5 +250,8 @@ Kad įsitikint, jog klasė `Zmogus` yra abstrakti, reikia atkomentuoti funkciją
 ## v2.0
 Sukurta klasę aprašanti dokumentacija, HTML ir TEX formatais, su sukompiliuotu PDF failu. Atlikti Catch2 testai faile `src`/`catchTest.cpp`.
 
-## v3.0
-Implementuotas nuosavas `Vector` padengiantis daugiau nei 80% `std::vector` funkcionalumo. Atlikti efektyvumo bei funkcionalumo testavimai, programa perrašyta ant nuosavo `Vector`. Sukurtas programos diegimo failas.
+## v3.0 be exe
+Implementuotas nuosavas `Vector` padengiantis daugiau nei 80% `std::vector` funkcionalumo. Atlikti efektyvumo bei funkcionalumo testavimai, programa perrašyta ant nuosavo `Vector`.
+
+## v3.0 su exe
+Sukurtas programos diegimo `setup.exe` failas.
