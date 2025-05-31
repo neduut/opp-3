@@ -7,13 +7,6 @@ Yra sukurta programos dokumentacija - `dokumentacija.pdf`.
 
 # Naudojimo instrukcijos
 
-**Katalogai:**
-- `analysis` - programos veikimo analizės rezultatai, naudojami tam tikrose programos versijose
-- `docs` - doxygen failai
-- `files` - programoje vykdymo metu naudojami .txt failai (įtrauktas į `.gitignore` ir atsiras tik paleidus programą)
-- `include` - antraščių `.h` failai 
-- `src` - `.cpp` failai
-
 **Kad paleisti programą, turite atlikti šiuos veiksmus:**
 
 1. Paleiskite `setup.exe` ir leiskite įdiegti programą
@@ -25,6 +18,13 @@ Yra sukurta programos dokumentacija - `dokumentacija.pdf`.
 - Operacinė sistema: Windows 10 x64-bit arba naujesnė versija
 - Įdiegta CMake (3.25 arba naujesnė versija)
 - Kompiliatorius: g++ (su C++11 arba naujesne versija)
+
+## Katalogai:
+- `analysis` - programos veikimo analizės rezultatai, naudojami tam tikrose programos versijose
+- `docs` - doxygen failai
+- `files` - programoje vykdymo metu naudojami .txt failai (įtrauktas į `.gitignore` ir atsiras tik paleidus programą)
+- `include` - antraščių `.h` failai 
+- `src` - `.cpp` failai
   
 ## Duomenų įvestis
 | Tipas        | Aprašymas                                                                                                         |
