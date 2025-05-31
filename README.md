@@ -16,14 +16,9 @@ Yra sukurta programos dokumentacija - `dokumentacija.pdf`.
 
 **Kad paleisti programą, turite atlikti šiuos veiksmus:**
 
-1. Įeikite į norimos versijos katalogą
-2. Paleiskite `run.bat` failą
-
-  `run.bat` failas atliks šiuos veiksmus:
-   - Sukurs build katalogą 
-   - Paleis CMake, kad sugeneruotų `Makefile`
-   - Sukompiliuos projektą naudodamas make komandą
-   - Paleis sukompiliuotą programą terminale
+1. Paleiskite setup.exe ir leiskite įdiegti programą
+2. Programa bus įdiegta -> `Program Files` -> `VU` -> `Neda` kataloge
+3. Paleiskite Objektinis.exe failą
 
 **Reikalavimai**
 
@@ -75,8 +70,9 @@ Paleidus programą, vartotojas pateks į meniu, kuriame galės pasirinkti ar nor
 
 # Versija v3.0
 
-Šioje versijoje implementuotas nuosavas vektorius `Vector`, kuris padengia daugiau nei 80% `std::vector` funkcionalumo.
+1. Šioje versijoje implementuotas nuosavas vektorius `Vector`, kuris padengia daugiau nei 80% `std::vector` funkcionalumo.
 Vektorius aprašytas `include`/`ownVector.h` faile.
+2. Sukurtas programos diegimo failas naudojant Inno Setup (nes buvo naudojama VS Code aplinka).
 
 ## `Vector<T>` Klasės Aprašymas
 
@@ -255,4 +251,4 @@ Kad įsitikint, jog klasė `Zmogus` yra abstrakti, reikia atkomentuoti funkciją
 Sukurta klasę aprašanti dokumentacija, HTML ir TEX formatais, su sukompiliuotu PDF failu. Atlikti Catch2 testai faile `src`/`catchTest.cpp`.
 
 ## v3.0
-Implementuotas nuosavas `Vector` padengiantis daugiau nei 80% `std::vector` funkcionalumo. Atlikti efektyvumo bei funkcionalumo testavimai, programa perrašyta ant nuosavo `Vector`.
+Implementuotas nuosavas `Vector` padengiantis daugiau nei 80% `std::vector` funkcionalumo. Atlikti efektyvumo bei funkcionalumo testavimai, programa perrašyta ant nuosavo `Vector`. Sukurtas programos diegimo failas.
